@@ -9,15 +9,6 @@ namespace BUS
 {
     public class NhaCungCap_BUS
     {
-        //public static List<NhaCungCap_DTO> DSachNCC()
-        //{
-        //    return NhaCungCap_DAO.DanhSachNCC(); 
-        //}
-        //public static bool New_NCC(NhaCungCap_DTO NhaCungCap_DTO)
-        //{
-        //    return NhaCungCap_DAO.New_NCC(NhaCungCap_DTO);
-        //}
-
         public List<NhaCungCap_DTO> GetNccList()
         {
             try

@@ -26,7 +26,7 @@ namespace QuanLyMuaCaFe
             List<NhaCungCap_DTO> DanhSachNCC = BUS.GetNccList();
             dataGridView1.DataSource = DanhSachNCC;
         }
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             //Thực hiện khi click vào 1 dòng trên DataGridView sẽ gán các giá trị vào các textbox tương ứng
 
@@ -37,7 +37,7 @@ namespace QuanLyMuaCaFe
             tbSDT.Text = dgrv.Cells["SoDienThoai"].Value.ToString();
         }
 
-        private void btNew_Click(object sender, EventArgs e)
+        private void btNew_Click_1(object sender, EventArgs e)
         {
             // Thực hiện Tạo mới Nhà cung cấp
             if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
