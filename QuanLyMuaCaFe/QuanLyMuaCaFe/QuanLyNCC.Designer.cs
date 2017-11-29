@@ -114,6 +114,7 @@
             this.btDelete.TabIndex = 7;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btUpdate
             // 
@@ -142,6 +143,7 @@
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(349, 38);
             this.tbDiaChi.TabIndex = 4;
+            this.tbDiaChi.TextChanged += new System.EventHandler(this.tbDiaChi_TextChanged);
             // 
             // label3
             // 

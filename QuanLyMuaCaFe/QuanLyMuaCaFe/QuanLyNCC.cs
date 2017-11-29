@@ -110,5 +110,10 @@ namespace QuanLyMuaCaFe
             }
             Load();
         }
+
+        private void tbDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
