@@ -12,8 +12,6 @@ namespace DAO
     public class NhaCungCap_DAO
     {
         public static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
-        public static DataProvider sprovider;
-
         public List<NhaCungCap_DTO> GetNccList()
         {
             List<NhaCungCap_DTO> Danhsach = new List<NhaCungCap_DTO>();
@@ -119,7 +117,6 @@ namespace DAO
                 }
             }
         }
-
     }
 }
 
