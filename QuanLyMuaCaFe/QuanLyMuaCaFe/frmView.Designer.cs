@@ -94,6 +94,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmView";
             this.Text = "frmView";
+            this.Load += new System.EventHandler(this.frmView_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -43,11 +43,14 @@ namespace QuanLyMuaCaFe
             if (result.ResultCode > 0)
             {
                 UserID = result.ResultCode;
-                this.Close();
+                MessageBox.Show(result.ResultMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
             }
             else
             {
-                MessageBox.Show(result.ResultMessage);
+                MessageBox.Show(result.ResultMessage, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbUsername.Text = "";
+                tbPassword.Text = "";
                 if (iLoginFailed < cNumberLoginFailed)
                 {
                     iLoginFailed += 1;
