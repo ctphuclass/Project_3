@@ -34,8 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btLogin = new System.Windows.Forms.Button();
+            this.btCancel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -76,8 +76,9 @@
             this.tbPassword.Location = new System.Drawing.Point(386, 218);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(231, 26);
-            this.tbPassword.TabIndex = 3;
+            this.tbPassword.TabIndex = 1;
             // 
             // tbUsername
             // 
@@ -85,29 +86,30 @@
             this.tbUsername.Multiline = true;
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(231, 26);
-            this.tbUsername.TabIndex = 4;
+            this.tbUsername.TabIndex = 0;
             // 
-            // button1
+            // btLogin
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(321, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btLogin.Location = new System.Drawing.Point(321, 284);
+            this.btLogin.Name = "btLogin";
+            this.btLogin.Size = new System.Drawing.Size(92, 43);
+            this.btLogin.TabIndex = 2;
+            this.btLogin.Text = "Login";
+            this.btLogin.UseVisualStyleBackColor = true;
+            this.btLogin.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btCancel
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(455, 284);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 43);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btCancel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btCancel.Location = new System.Drawing.Point(455, 284);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(92, 43);
+            this.btCancel.TabIndex = 3;
+            this.btCancel.Text = "Cancel";
+            this.btCancel.UseVisualStyleBackColor = true;
             // 
             // timer1
             // 
@@ -132,8 +134,8 @@
             this.BackgroundImage = global::QuanLyMuaCaFe.Properties.Resources.bgImage;
             this.ClientSize = new System.Drawing.Size(903, 339);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btCancel);
+            this.Controls.Add(this.btLogin);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label3);
@@ -155,8 +157,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbUsername;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btLogin;
+        private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;
     }
