@@ -56,7 +56,7 @@
             this.nhàCungCấpToolStripMenuItem1});
             this.quảnLíToolStripMenuItem.Name = "quảnLíToolStripMenuItem";
             this.quảnLíToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.quảnLíToolStripMenuItem.Text = "Quản Lí";
+            this.quảnLíToolStripMenuItem.Text = "&Quản Lí";
             // 
             // nhàCungCấpToolStripMenuItem
             // 
@@ -74,19 +74,19 @@
             // 
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.doanhThuToolStripMenuItem.Text = "Doanh Thu";
+            this.doanhThuToolStripMenuItem.Text = "&Doanh Thu";
             // 
             // kiểmTraTồnKhoToolStripMenuItem
             // 
             this.kiểmTraTồnKhoToolStripMenuItem.Name = "kiểmTraTồnKhoToolStripMenuItem";
             this.kiểmTraTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
-            this.kiểmTraTồnKhoToolStripMenuItem.Text = "Kiểm tra tồn kho";
+            this.kiểmTraTồnKhoToolStripMenuItem.Text = "&Kiểm tra tồn kho";
             // 
             // frmView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::QuanLyMuaCaFe.Properties.Resources.nhac_khong_loi_buoi_sang;
+            this.BackgroundImage = global::QuanLyMuaCaFe.Properties.Resources.ImageFrmView;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(943, 390);
