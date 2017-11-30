@@ -59,5 +59,10 @@ namespace QuanLyMuaCaFe
                 }
             }
         }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
