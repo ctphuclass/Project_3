@@ -14,29 +14,22 @@ namespace QuanLyMuaCaFe
 {
     public partial class frmView : Form
     {
-        private List<Login_DTO> listPermission;
+        //private List<Login_DTO> GetListPermission;
         public int UserID;
-        Login_BUS BUS;
+        public DataGridView dgrv;
+        public Login_BUS BUS;
+        
         public frmView()
         {
             InitializeComponent();
         }
         private void frmView_Load(object sender, EventArgs e)
         {
-            listPermission = BUS.GetPermission(piUserID, "admin");
-            CheckQuyen();
+            
         }
         private void CheckQuyen()
         {
-            Login_DTO result = listPermission.Find(item => item.Quyen == "Nhà Cung Cấp");
-            if(result != null)
-            {
-                nhàCungCấpToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
-                nhàCungCấpToolStripMenuItem.Enabled = false;
-            }
+            
         }
 
         

@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhàCungCấpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraTồnKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,17 +52,17 @@
             // quảnLíToolStripMenuItem
             // 
             this.quảnLíToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nhàCungCấpToolStripMenuItem,
+            this.NhanVienToolStripMenuItem,
             this.nhàCungCấpToolStripMenuItem1});
             this.quảnLíToolStripMenuItem.Name = "quảnLíToolStripMenuItem";
             this.quảnLíToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.quảnLíToolStripMenuItem.Text = "&Quản Lí";
             // 
-            // nhàCungCấpToolStripMenuItem
+            // NhanVienToolStripMenuItem
             // 
-            this.nhàCungCấpToolStripMenuItem.Name = "nhàCungCấpToolStripMenuItem";
-            this.nhàCungCấpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nhàCungCấpToolStripMenuItem.Text = "Nhân Viên";
+            this.NhanVienToolStripMenuItem.Name = "NhanVienToolStripMenuItem";
+            this.NhanVienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NhanVienToolStripMenuItem.Text = "Nhân Viên";
             // 
             // nhàCungCấpToolStripMenuItem1
             // 
@@ -106,9 +106,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLíToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraTồnKhoToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem NhanVienToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
     }
 }

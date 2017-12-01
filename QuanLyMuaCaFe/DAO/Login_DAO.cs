@@ -12,7 +12,7 @@ namespace DAO
     public class Login_DAO
     {
         //Kết nối Database
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
+        public SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
         //Kiểm tra tài khoản user có tồn tại hay ko
         public ResultMessage_DTO AddUserDetails(Login_DTO ObjBO) // passing Bussiness object Here
         {
@@ -87,44 +87,32 @@ namespace DAO
             }
             return result;
         }
-        public List<Login_DTO> GetPermission(Login_DTO piUserID,Login_DTO psQuyen)
+        public static bool CheckPermission(Login_DTO Login_DTO)
         {
-            List<Login_DTO> list = new List<Login_DTO>();
-            Login_DTO user;
             try
             {
-                /* Because We will put all out values from our (UserRegistration.aspx)
-				To in Bussiness object and then Pass it to Bussiness logic and then to
-				DataAcess
-				this way the flow carry on*/
-                SqlCommand cmd = new SqlCommand("usp_USER_GetUserPermision", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@piUserID", piUserID);
-                cmd.Parameters.AddWithValue("@psQuyen", psQuyen);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
+                string Query = "usp_USER_GetUserListPermision @UserName";
                 con.Open();
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
+                SqlCommand cmd = new SqlCommand(Query, con);
+
+                SqlParameter UserName = new SqlParameter("@UserName", SqlDbType.VarChar);
+                UserName.Value = Login_DTO.UserName;
+                cmd.Parameters.Add(UserName);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                for(int i = 0; i<dt.Rows.Count;i++)
                 {
-                    user = new Login_DTO();
-                    user.UserID = int.Parse(reader["UserID"].ToString());
-                    user.Quyen = reader["Quyen"].ToString();
-                    list.Add(user);
+                    Login_DTO.Quyen = dt.Rows[i]["Quyen"].ToString();
                 }
-                reader.Close();
-                cmd.Dispose();
+                return true;
             }
-            catch (Exception ex)
+            catch
             {
-                list = null;
+                return false;
             }
-            finally
-            {
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            return list;
         }
     }
 }

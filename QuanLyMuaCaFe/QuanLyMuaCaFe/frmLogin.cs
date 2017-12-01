@@ -14,6 +14,7 @@ namespace QuanLyMuaCaFe
 {
     public partial class frmLogin : Form
     {
+        public frmView fView = new frmView();
         public int UserID;
         int iLoginFailed;
         const int cNumberLoginFailed = 3;
@@ -42,8 +43,26 @@ namespace QuanLyMuaCaFe
             result = Login_BUS.SaveUserregisrationBL(Login_DTO);
             if (result.ResultCode > 0)
             {
+                frmView fView = new frmView();
                 UserID = result.ResultCode;
+                fView.UserID = UserID;
                 MessageBox.Show(result.ResultMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                if (Login_BUS.CheckPermission(Login_DTO) == true)
+                {
+
+                    if (Login_DTO.Quyen == "nhanvien")
+                    {
+                        fView.NhanVienToolStripMenuItem.Enabled = false;
+                        fView.nhàCungCấpToolStripMenuItem1.Enabled = false;
+                        fView.doanhThuToolStripMenuItem.Enabled = false;
+                    }
+                    else
+                    {
+                        fView.NhanVienToolStripMenuItem.Enabled = false;
+                    }
+                }
+                fView.ShowDialog();
                 this.Hide();
             }
             else
@@ -61,6 +80,7 @@ namespace QuanLyMuaCaFe
                     this.DialogResult = DialogResult.Cancel;
                 }
             }
+           
         }
 
         private void btCancel_Click(object sender, EventArgs e)

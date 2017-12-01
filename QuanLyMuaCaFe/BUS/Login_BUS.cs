@@ -40,17 +40,9 @@ namespace BUS
                 throw;
             }
         }
-        public List<Login_DTO> GetPermission(Login_DTO piUserID, Login_DTO psQuyen)
+        public static bool CheckPermission(Login_DTO Login_DTO)
         {
-            try
-            {
-                Login_DAO Quyen = new Login_DAO(); // Creating object of Dataccess
-                return Quyen.GetPermission(piUserID, psQuyen); // calling Method of DataAccess
-            }
-            catch
-            {
-                throw;
-            }
+            return Login_DAO.CheckPermission(Login_DTO);
         }
     }
 }
