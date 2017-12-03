@@ -10,7 +10,7 @@ namespace DTO
     {
         public string MaNV;
         public string HoTenNV;
-        public DateTime NgaySinh;
+        public string NgaySinh;
         public string GioiTinh;
         public string QueQuan;
         public string DiaChi;

@@ -28,7 +28,7 @@ namespace DAO
                     NV = new NhanVien_DTO();
                     NV.MaNV = reader["Ma_NV"].ToString();
                     NV.HoTenNV = reader["HoTen_NV"].ToString();
-                    NV.NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString());
+                    NV.NgaySinh = (reader["NgaySinh"].ToString());
                     NV.GioiTinh = reader["GioiTinh"].ToString();
                     NV.QueQuan = reader["QueQuan"].ToString();
                     NV.DiaChi = reader["DiaChi"].ToString();
@@ -38,6 +38,7 @@ namespace DAO
                 }
                 reader.Close();
                 cmd.Dispose();
+               
             }
             catch (Exception ex)
             {
@@ -52,12 +53,12 @@ namespace DAO
             }
             return Danhsach;
         }
-        public static bool New_NV(NhanVien_DTO NewNV)
+        public static bool New_NV(NhanVien_DTO NhanVien_DTO)
         {
             try
             {
                 con.Open();
-                string New = string.Format("exec proc_InsertNewNV @Ma_NV = '{0}', @HoTen_NV = N'{1}',@NgaySinh='{2}',@GioiTinh = N'{3}',@QueQuan = N'{4}',@DiaChi=N'{5}',@Email = '{6}', @SoDienThoai='{7}'",);
+                string New = string.Format("exec proc_InsertNewNV @Ma_NV='{0}',@HoTen_NV=N'{1}',@NgaySinh='{2}',@GioiTinh=N'{3}',@QueQuan=N'{4}',@DiaChi=N'{5}',@Email='{6}',@SoDienThoai='{7}'",NhanVien_DTO.MaNV,NhanVien_DTO.HoTenNV,NhanVien_DTO.NgaySinh,NhanVien_DTO.NgaySinh,NhanVien_DTO.QueQuan,NhanVien_DTO.DiaChi,NhanVien_DTO.Email,NhanVien_DTO.SDT);
                 SqlCommand cmd = new SqlCommand(New, con);
                 int i = cmd.ExecuteNonQuery();
                 return true;

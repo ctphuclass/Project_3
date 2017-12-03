@@ -16,14 +16,8 @@ namespace QuanLyMuaCaFe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //frmLogin fLogin = new frmLogin();
-            //fLogin.ShowDialog();
-            //if(fLogin.UserID > 0)
-            //{
-            //    frmView fView = new frmView();
-            //    fView.UserID = fLogin.UserID;
-                Application.Run(new frmLogin());
-            //}
+            
+                Application.Run(new frmQuanLyNhanVien());
             
         }
     }
