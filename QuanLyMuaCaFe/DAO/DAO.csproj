@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Login_DAO.cs" />
     <Compile Include="NhaCungCap_DAO.cs" />
+    <Compile Include="NhanVien_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

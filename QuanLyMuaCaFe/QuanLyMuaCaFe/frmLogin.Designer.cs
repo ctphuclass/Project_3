@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,25 +35,25 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.btLogin = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Menu;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(150, 111);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 19.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(188, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(542, 31);
+            this.label1.Size = new System.Drawing.Size(516, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Xin vui lòng đăng nhập để sử dụng chương trình";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(267, 179);
             this.label2.Name = "label2";
@@ -65,6 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(267, 218);
             this.label3.Name = "label3";
@@ -93,9 +93,9 @@
             // 
             this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btLogin.Location = new System.Drawing.Point(321, 284);
+            this.btLogin.Location = new System.Drawing.Point(452, 284);
             this.btLogin.Name = "btLogin";
-            this.btLogin.Size = new System.Drawing.Size(92, 43);
+            this.btLogin.Size = new System.Drawing.Size(112, 43);
             this.btLogin.TabIndex = 2;
             this.btLogin.Text = "Login";
             this.btLogin.UseVisualStyleBackColor = true;
@@ -105,28 +105,23 @@
             // 
             this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btCancel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btCancel.Location = new System.Drawing.Point(455, 284);
+            this.btCancel.Location = new System.Drawing.Point(634, 284);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(92, 43);
+            this.btCancel.Size = new System.Drawing.Size(112, 43);
             this.btCancel.TabIndex = 3;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 17F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(267, 36);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Purple;
+            this.label4.Location = new System.Drawing.Point(256, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(321, 27);
-            this.label4.TabIndex = 7;
+            this.label4.Size = new System.Drawing.Size(396, 32);
+            this.label4.TabIndex = 8;
             this.label4.Text = "Phần Mềm Quản Lý Mua Hàng Cafe";
             // 
             // frmLogin
@@ -161,7 +156,6 @@
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;
     }
 }
