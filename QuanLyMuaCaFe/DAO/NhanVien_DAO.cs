@@ -87,9 +87,23 @@ namespace DAO
             {
                 con.Open();
                 //string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@Ma_NVmoi='{1}',@HoTen_NV=N'{2}',@NgaySinh='{3}',@GioiTinh=N'{4}',@QueQuan=N'{5}',@DiaChi=N'{6}',@Email='{7}',@SoDienThoai='{8}'", NhanVien_DTO.MaNV,NhanVien_DTO.MaNVmoi, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
-                string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@HoTen_NV=N'{1}',@NgaySinh='{2}',@GioiTinh=N'{3}',@QueQuan=N'{4}',@DiaChi=N'{5}',@Email='{6}',@SoDienThoai='{7}'",NhanVien_DTO.MaNV, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
-                SqlCommand cmd = new SqlCommand(Update, con);
-                int i = cmd.ExecuteNonQuery();
+                //string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@HoTen_NV=N'{1}',@NgaySinh='{2}',@GioiTinh=N'{3}',@QueQuan=N'{4}',@DiaChi=N'{5}',@Email='{6}',@SoDienThoai='{7}'",NhanVien_DTO.MaNV, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
+                //SqlCommand cmd = new SqlCommand(Update, con);
+                //int i = cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("proc_UpdateNV", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ma_NV", ObjBO.Username);
+                cmd.Parameters.AddWithValue("@psPassword", ObjBO.Password);
+                cmd.Parameters.AddWithValue("@pResultCode", result.ResultCode);
+                cmd.Parameters.AddWithValue("@pResultMessage", result.ResultMessage);
+                cmd.Parameters["@pResultCode"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage"].Size = 50;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                result.ResultCode = (int)cmd.Parameters["@pResultCode"].Value;
+                result.ResultMessage = cmd.Parameters["@pResultMessage"].Value.ToString();
+                cmd.Dispose();
                 return true;
             }
             catch (Exception ex)
