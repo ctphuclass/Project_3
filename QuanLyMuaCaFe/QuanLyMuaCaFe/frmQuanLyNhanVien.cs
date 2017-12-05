@@ -100,12 +100,15 @@ namespace QuanLyMuaCaFe
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
+            NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            ResultMessage_DTO result;
+            result = NhanVien_BUS.Update_NV(NV_DTO);
             if (tbMaNV.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
             NV_DTO.NgaySinh = dtPickerNgaySinh.Text;

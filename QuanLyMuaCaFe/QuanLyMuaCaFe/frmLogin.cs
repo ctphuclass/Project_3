@@ -24,15 +24,6 @@ namespace QuanLyMuaCaFe
             InitializeComponent();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            label4.Left += i;
-            if(label4.Left >= 550 || label4.Left <= 0)
-            {
-                i = -i;
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ResultMessage_DTO result;
