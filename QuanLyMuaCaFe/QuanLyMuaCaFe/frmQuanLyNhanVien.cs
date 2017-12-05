@@ -19,32 +19,147 @@ namespace QuanLyMuaCaFe
         public frmQuanLyNhanVien()
         {
             InitializeComponent();
-            
+
             //Thực hiện việc lựa chọn Giới Tính thông qua ComboBox
-            //List<clsGioiTinh> GioiTinh = new List<clsGioiTinh>();
-            //GioiTinh.Add(new clsGioiTinh() { Name = "Nam" });
-            //GioiTinh.Add(new clsGioiTinh() { Name = "Nữ" });
-            //cbGioiTinh.DataSource = GioiTinh;
-            //cbGioiTinh.DisplayMember = "Name";
+            List<clsGioiTinh> GioiTinh = new List<clsGioiTinh>();
+            GioiTinh.Add(new clsGioiTinh() { Name = "" });
+            GioiTinh.Add(new clsGioiTinh() { Name = "Nam" });
+            GioiTinh.Add(new clsGioiTinh() { Name = "Nữ" });
+            cbGioiTinh.DataSource = GioiTinh;
+            cbGioiTinh.DisplayMember = "Name";
             Load();
         }
         public void Load()
         {
             List<NhanVien_DTO> DanhSachNV = BUS.GetListNV();
-            dataGridView1.DataSource = DanhSachNV;
+            datagrid123.DataSource = DanhSachNV;
+        }
+        public void Clear()
+        {
+            tbMaNV.Text = "";
+            tbHoTenNV.Text = "";
+            dtPickerNgaySinh.Text = "";
+            cbGioiTinh.Text = "";
+            tbQueQuan.Text = "";
+            tbDiaChi.Text = "";
+            tbEmail.Text = "";
+            tbSDT.Text = "";
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void datagrid123_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             //Thực hiện khi click vào 1 dòng trên DataGridView sẽ gán các giá trị vào các textbox tương ứng
 
-            //DataGridViewRow dgrv = dataGridView1.CurrentRow;
-            //tbMaNV.Text = dgrv.Cells["Ma_NV"].Value.ToString();
-            //tbHoTenNV.Text = dgrv.Cells["HoTen_NV"].Value.ToString();
-
-            //tbDiaChi.Text = dgrv.Cells["DiaChi"].Value.ToString();
-
-            //tbSDT.Text = dgrv.Cells["SoDienThoai"].Value.ToString();
+            DataGridViewRow dgrv = datagrid123.CurrentRow;
+            tbMaNV.Text = dgrv.Cells["MaNV"].Value.ToString();
+            tbHoTenNV.Text = dgrv.Cells["HoTenNV"].Value.ToString();
+            dtPickerNgaySinh.Text = dgrv.Cells["NgaySinh"].Value.ToString();
+            cbGioiTinh.Text = dgrv.Cells["GioiTinh"].Value.ToString();
+            tbQueQuan.Text = dgrv.Cells["QueQuan"].Value.ToString();
+            tbDiaChi.Text = dgrv.Cells["DiaChi"].Value.ToString();
+            tbEmail.Text = dgrv.Cells["Email"].Value.ToString();
+            tbSDT.Text = dgrv.Cells["SDT"].Value.ToString();
         }
+
+        private void btNewNV_Click(object sender, EventArgs e)
+        {
+            if (tbMaNV.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu để thêm nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            NV_DTO.MaNV = tbMaNV.Text;
+            NV_DTO.HoTenNV = tbHoTenNV.Text;
+            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.GioiTinh = cbGioiTinh.Text;
+            NV_DTO.QueQuan = tbQueQuan.Text;
+            NV_DTO.DiaChi = tbDiaChi.Text;
+            NV_DTO.Email = tbEmail.Text;
+            NV_DTO.SDT = tbSDT.Text;
+            if (NhanVien_BUS.New_NV(NV_DTO) == true)
+            {
+                MessageBox.Show("Thêm thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thêm Thất bại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Load();
+            Clear();
+        }
+
+        private void btUpdate_Click(object sender, EventArgs e)
+        {
+            if (tbMaNV.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            NV_DTO.MaNV = tbMaNV.Text;
+            NV_DTO.HoTenNV = tbHoTenNV.Text;
+            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.GioiTinh = cbGioiTinh.Text;
+            NV_DTO.QueQuan = tbQueQuan.Text;
+            NV_DTO.DiaChi = tbDiaChi.Text;
+            NV_DTO.Email = tbEmail.Text;
+            NV_DTO.SDT = tbSDT.Text;
+            if (NhanVien_BUS.Update_NV(NV_DTO) == true)
+            {
+                MessageBox.Show("Sửa thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Sửa Thất bại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Load();
+            Clear();
+        }
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            if (tbMaNV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            NV_DTO.MaNV = tbMaNV.Text;
+            NV_DTO.HoTenNV = tbHoTenNV.Text;
+            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.GioiTinh = cbGioiTinh.Text;
+            NV_DTO.QueQuan = tbQueQuan.Text;
+            NV_DTO.DiaChi = tbDiaChi.Text;
+            NV_DTO.Email = tbEmail.Text;
+            NV_DTO.SDT = tbSDT.Text;
+            if (NhanVien_BUS.Delete_NV(NV_DTO) == true)
+            {
+                MessageBox.Show("Xóa thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Xóa Thất bại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Load();
+            Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+
+
+
     }
 }

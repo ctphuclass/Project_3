@@ -201,6 +201,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Quản Lý Nhà Cung Cấp";
+            //this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

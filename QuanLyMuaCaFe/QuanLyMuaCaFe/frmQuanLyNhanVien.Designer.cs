@@ -46,18 +46,21 @@
             this.tbQueQuan = new System.Windows.Forms.TextBox();
             this.tbHoTenNV = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btUpdate = new System.Windows.Forms.Button();
+            this.btNewNV = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagrid123 = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btSearch = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid123)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -129,7 +132,7 @@
             // 
             // dtPickerNgaySinh
             // 
-            this.dtPickerNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerNgaySinh.CustomFormat = "yyyy/MM/dd";
             this.dtPickerNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtPickerNgaySinh.Location = new System.Drawing.Point(128, 70);
             this.dtPickerNgaySinh.Name = "dtPickerNgaySinh";
@@ -221,114 +224,140 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btUpdate);
+            this.groupBox2.Controls.Add(this.btNewNV);
+            this.groupBox2.Controls.Add(this.btDelete);
             this.groupBox2.Location = new System.Drawing.Point(726, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(187, 158);
+            this.groupBox2.Size = new System.Drawing.Size(184, 158);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // btUpdate
+            // 
+            this.btUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btUpdate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btUpdate.Location = new System.Drawing.Point(45, 62);
+            this.btUpdate.Name = "btUpdate";
+            this.btUpdate.Size = new System.Drawing.Size(96, 35);
+            this.btUpdate.TabIndex = 9;
+            this.btUpdate.Text = "Sửa thông tin Nhân Viên";
+            this.btUpdate.UseVisualStyleBackColor = true;
+            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
+            // 
+            // btNewNV
+            // 
+            this.btNewNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btNewNV.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btNewNV.Location = new System.Drawing.Point(45, 19);
+            this.btNewNV.Name = "btNewNV";
+            this.btNewNV.Size = new System.Drawing.Size(96, 36);
+            this.btNewNV.TabIndex = 8;
+            this.btNewNV.Text = "Thêm mới Nhân Viên";
+            this.btNewNV.UseVisualStyleBackColor = true;
+            this.btNewNV.Click += new System.EventHandler(this.btNewNV_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btDelete.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btDelete.Location = new System.Drawing.Point(45, 103);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(96, 35);
+            this.btDelete.TabIndex = 10;
+            this.btDelete.Text = "Xóa Nhân Viên";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.datagrid123);
+            this.groupBox3.Location = new System.Drawing.Point(12, 232);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(898, 281);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            // 
+            // datagrid123
+            // 
+            this.datagrid123.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid123.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagrid123.Location = new System.Drawing.Point(3, 16);
+            this.datagrid123.Name = "datagrid123";
+            this.datagrid123.Size = new System.Drawing.Size(892, 262);
+            this.datagrid123.TabIndex = 0;
+            this.datagrid123.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid123_CellClick);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btSearch);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.tbSearch);
+            this.groupBox4.Location = new System.Drawing.Point(12, 176);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(898, 50);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(52, 62);
+            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Location = new System.Drawing.Point(796, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 35);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sửa thông tin Nhân Viên";
+            this.button1.Size = new System.Drawing.Size(96, 31);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btSearch
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(52, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 36);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Thêm mới Nhân Viên";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(52, 103);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 35);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Xóa Nhân Viên";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 202);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(901, 156);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(895, 137);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            this.btSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btSearch.Location = new System.Drawing.Point(471, 12);
+            this.btSearch.Name = "btSearch";
+            this.btSearch.Size = new System.Drawing.Size(106, 21);
+            this.btSearch.TabIndex = 15;
+            this.btSearch.Text = "Search";
+            this.btSearch.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(189, 186);
+            this.label9.Location = new System.Drawing.Point(6, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(257, 13);
-            this.label9.TabIndex = 11;
+            this.label9.TabIndex = 13;
             this.label9.Text = "Tìm kiếm theo Mã hoặc Tên của Nhân Viên:";
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(446, 183);
+            this.tbSearch.Location = new System.Drawing.Point(263, 13);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(202, 20);
-            this.tbSearch.TabIndex = 11;
-            // 
-            // btSearch
-            // 
-            this.btSearch.Location = new System.Drawing.Point(654, 182);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(106, 21);
-            this.btSearch.TabIndex = 12;
-            this.btSearch.Text = "Search";
-            this.btSearch.UseVisualStyleBackColor = true;
+            this.tbSearch.TabIndex = 14;
             // 
             // frmQuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 370);
-            this.Controls.Add(this.btSearch);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.tbSearch);
+            this.ClientSize = new System.Drawing.Size(919, 514);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmQuanLyNhanVien";
-            this.Text = "frmQuanLyNhanVien";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid123)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -352,13 +381,15 @@
         private System.Windows.Forms.TextBox tbQueQuan;
         private System.Windows.Forms.TextBox tbHoTenNV;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btUpdate;
+        private System.Windows.Forms.Button btNewNV;
+        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView datagrid123;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btSearch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button btSearch;
+        private System.Windows.Forms.Button button1;
     }
 }

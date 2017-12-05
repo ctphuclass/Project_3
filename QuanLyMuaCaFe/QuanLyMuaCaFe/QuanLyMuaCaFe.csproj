@@ -125,7 +125,7 @@
     <None Include="Resources\ImageFrmView.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\QLBHcafe.sql" />
+    <Content Include="Resources\QLCF.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

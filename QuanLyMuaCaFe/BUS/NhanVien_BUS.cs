@@ -14,12 +14,25 @@ namespace BUS
             try
             {
                 NhanVien_DAO NV_DAO = new NhanVien_DAO(); // Creating object of Dataccess
-                return NV_DAO.GetListNV(); // calling Method of DataAccess
+                return NhanVien_DAO.GetListNV(); // calling Method of DataAccess
             }
             catch
             {
                 throw;
             }
         }
+        public static bool New_NV(NhanVien_DTO NhanVien_DTO)
+        {
+            return NhanVien_DAO.New_NV(NhanVien_DTO);
+        }
+        public static bool Update_NV(NhanVien_DTO NhanVien_DTO)
+        {
+            return NhanVien_DAO.Update_NV(NhanVien_DTO);
+        }
+        public static bool Delete_NV(NhanVien_DTO NhanVien_DTO)
+        {
+            return NhanVien_DAO.Delete_NV(NhanVien_DTO);
+        }
+
     }
 }
