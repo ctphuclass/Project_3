@@ -25,9 +25,17 @@ namespace BUS
         {
             return NhanVien_DAO.New_NV(NhanVien_DTO);
         }
-        public static bool Update_NV(NhanVien_DTO NhanVien_DTO)
+        public ResultMessage_DTO Update_NV(NhanVien_DTO NhanVien_DTO)
         {
-            return NhanVien_DAO.Update_NV(NhanVien_DTO);
+            try
+            {
+                NhanVien_DAO NhanVien_DAO = new NhanVien_DAO();
+                return NhanVien_DAO.Update_NV(NhanVien_DTO);
+            }
+            catch
+            {
+                throw;
+            }    
         }
         public static bool Delete_NV(NhanVien_DTO NhanVien_DTO)
         {

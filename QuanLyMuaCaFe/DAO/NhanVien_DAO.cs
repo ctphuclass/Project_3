@@ -81,22 +81,41 @@ namespace DAO
                 }
             }
         }
-        public static bool Update_NV(NhanVien_DTO NhanVien_DTO)
+        public ResultMessage_DTO  Update_NV(NhanVien_DTO NhanVien_DTO)
         {
             ResultMessage_DTO result = new ResultMessage_DTO();
             try
             {
-                con.Open();
+                //con.Open();
                 //string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@Ma_NVmoi='{1}',@HoTen_NV=N'{2}',@NgaySinh='{3}',@GioiTinh=N'{4}',@QueQuan=N'{5}',@DiaChi=N'{6}',@Email='{7}',@SoDienThoai='{8}'", NhanVien_DTO.MaNV,NhanVien_DTO.MaNVmoi, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
-                string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@HoTen_NV=N'{1}',@NgaySinh='{2}',@GioiTinh=N'{3}',@QueQuan=N'{4}',@DiaChi=N'{5}',@Email='{6}',@SoDienThoai='{7}'",NhanVien_DTO.MaNV, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
-                SqlCommand cmd = new SqlCommand(Update, con);
-                int i = cmd.ExecuteNonQuery();
-                return true;
+                //string Update = string.Format("EXEC proc_UpdateNV @Ma_NV='{0}',@HoTen_NV=N'{1}',@NgaySinh='{2}',@GioiTinh=N'{3}',@QueQuan=N'{4}',@DiaChi=N'{5}',@Email='{6}',@SoDienThoai='{7}'",NhanVien_DTO.MaNV, NhanVien_DTO.HoTenNV, NhanVien_DTO.NgaySinh, NhanVien_DTO.GioiTinh, NhanVien_DTO.QueQuan, NhanVien_DTO.DiaChi, NhanVien_DTO.Email, NhanVien_DTO.SDT);
+                //SqlCommand cmd = new SqlCommand(Update, con);
+                //int i = cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("proc_UpdateNV", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ma_NV", NhanVien_DTO.MaNV);
+                cmd.Parameters.AddWithValue("@HoTen_NV", NhanVien_DTO.HoTenNV);
+                cmd.Parameters.AddWithValue("@NgaySinh", NhanVien_DTO.NgaySinh);
+                cmd.Parameters.AddWithValue("@GioiTinh", NhanVien_DTO.GioiTinh);
+                cmd.Parameters.AddWithValue("@QueQuan", NhanVien_DTO.QueQuan);
+                cmd.Parameters.AddWithValue("@DiaChi", NhanVien_DTO.DiaChi);
+                cmd.Parameters.AddWithValue("@Email", NhanVien_DTO.Email);
+                cmd.Parameters.AddWithValue("@SoDienThoai", NhanVien_DTO.SDT);
+                cmd.Parameters.AddWithValue("@pResultCode_NV", result.ResultCode_NV);
+                cmd.Parameters.AddWithValue("@pResultMessage_NV", result.ResultMessage_NV);
+                cmd.Parameters["@pResultCode_NV"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage_NV"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage_NV"].Size = 200;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                result.ResultCode_NV = cmd.Parameters["@pResultCode_NV"].Value.ToString();
+                result.ResultMessage_NV = cmd.Parameters["@pResultMessage_NV"].Value.ToString();
+                cmd.Dispose();
+                
             }
             catch (Exception ex)
             {
-                return false;
-                result.ResultCode = -1;
+                result.ResultCode_NV = "";
                 result.ResultMessage_NV = ex.Message;
             }
             finally
@@ -106,6 +125,7 @@ namespace DAO
                     con.Close();
                 }
             }
+            return result;
         }
         public static bool Delete_NV(NhanVien_DTO NhanVien_DTO)
         {

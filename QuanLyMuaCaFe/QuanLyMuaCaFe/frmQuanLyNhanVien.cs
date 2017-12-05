@@ -101,8 +101,9 @@ namespace QuanLyMuaCaFe
         private void btUpdate_Click(object sender, EventArgs e)
         {
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
+            NhanVien_BUS NV_BUS = new NhanVien_BUS();
             ResultMessage_DTO result;
-            result = NhanVien_BUS.Update_NV(NV_DTO);
+            
             if (tbMaNV.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,13 +118,15 @@ namespace QuanLyMuaCaFe
             NV_DTO.DiaChi = tbDiaChi.Text;
             NV_DTO.Email = tbEmail.Text;
             NV_DTO.SDT = tbSDT.Text;
-            if (NhanVien_BUS.Update_NV(NV_DTO) == true)
+
+            result = BUS.Update_NV(NV_DTO);
+            if (result.ResultCode_NV == NV_DTO.MaNV)
             {
-                MessageBox.Show("Sửa thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(result.ResultMessage_NV, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Sửa Thất bại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.ResultMessage_NV, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Load();
             Clear();
