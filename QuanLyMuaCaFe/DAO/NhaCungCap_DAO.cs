@@ -70,21 +70,37 @@ namespace DAO
                 }
             }
         }
-        public static bool Update_NCC(NhaCungCap_DTO NhaCungCap_DTO)
+        public ResultMessage_DTO Update_NCC(NhaCungCap_DTO NhaCungCap_DTO)
         {
-
+            ResultMessage_DTO result = new ResultMessage_DTO();
             try
             {
+                //con.Open();
+                ////string Update = string.Format("exec proc_UpdateNCC @MaNCC = '{0}', @TenNCC=N'{1}',@DiaChi=N'{2}', @SDT='{3}'", NhaCungCap_DTO.MaNCC, NhaCungCap_DTO.TenNCC, NhaCungCap_DTO.DiaChi, NhaCungCap_DTO.SoDienThoai);
+                //SqlCommand cmd = new SqlCommand(Update, con);
+                //int i = cmd.ExecuteNonQuery();
+                //return true;
+                SqlCommand cmd = new SqlCommand("proc_UpdateNCC", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaNCC", NhaCungCap_DTO.MaNCC);
+                cmd.Parameters.AddWithValue("@TenNCC", NhaCungCap_DTO.TenNCC);
+                cmd.Parameters.AddWithValue("@DiaChi", NhaCungCap_DTO.DiaChi);
+                cmd.Parameters.AddWithValue("@SDT", NhaCungCap_DTO.SoDienThoai);
+                cmd.Parameters.AddWithValue("@pResultCode_NCC", result.ResultCode_NCC);
+                cmd.Parameters.AddWithValue("@pResultMessage_NCC", result.ResultMessage_NCC);
+                cmd.Parameters["@pResultCode_NCC"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage_NCC"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@pResultMessage_NCC"].Size = 200;
                 con.Open();
-                string Update = string.Format("exec proc_UpdateNCC @MaNCC = '{0}', @TenNCC=N'{1}',@DiaChi=N'{2}', @SDT='{3}'", NhaCungCap_DTO.MaNCC, NhaCungCap_DTO.TenNCC, NhaCungCap_DTO.DiaChi, NhaCungCap_DTO.SoDienThoai);
-                SqlCommand cmd = new SqlCommand(Update, con);
-                int i = cmd.ExecuteNonQuery();
-                return true;
+                cmd.ExecuteNonQuery();
+                result.ResultCode_NCC = cmd.Parameters["@pResultCode_NCC"].Value.ToString();
+                result.ResultMessage_NCC = cmd.Parameters["@pResultMessage_NCC"].Value.ToString();
+                cmd.Dispose();
             }
             catch (Exception ex)
             {
-                return false;
-                throw ex;
+                result.ResultCode_NCC = "";
+                result.ResultMessage_NCC = ex.Message;
             }
             finally
             {
@@ -93,6 +109,7 @@ namespace DAO
                     con.Close();
                 }
             }
+            return result;
         }
         public static bool Delete_NCC(NhaCungCap_DTO NhaCungCap_DTO)
         {

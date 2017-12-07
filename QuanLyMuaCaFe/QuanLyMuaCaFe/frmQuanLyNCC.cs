@@ -65,9 +65,10 @@ namespace QuanLyMuaCaFe
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
+            ResultMessage_DTO result;
             if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập dữ liệu!");
+                MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin Nhà Cung Cấp!");
                 return;
             }
             NhaCungCap_DTO NCC_DTO = new NhaCungCap_DTO();
@@ -76,13 +77,14 @@ namespace QuanLyMuaCaFe
             NCC_DTO.DiaChi = tbDiaChi.Text;
             NCC_DTO.SoDienThoai = tbSDT.Text;
 
-            if (NhaCungCap_BUS.Update_NCC(NCC_DTO) == true)
+            result = BUS.Update_NCC(NCC_DTO);
+            if (result.ResultCode_NCC == NCC_DTO.MaNCC)
             {
-                MessageBox.Show("Sửa Thành Công!", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show(result.ResultMessage_NCC, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Sửa Thất bại!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show(result.ResultMessage_NCC, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Load();
         }
@@ -119,6 +121,16 @@ namespace QuanLyMuaCaFe
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

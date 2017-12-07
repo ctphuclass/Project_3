@@ -44,13 +44,14 @@ namespace QuanLyMuaCaFe
 
                     if (Login_DTO.Quyen == "nhanvien")
                     {
-                        fView.NhanVienToolStripMenuItem.Enabled = false;
-                        fView.nhàCungCấpToolStripMenuItem1.Enabled = false;
                         fView.doanhThuToolStripMenuItem.Enabled = false;
+                        fView.quảnLíToolStripMenuItem.Enabled = false;
                     }
                     else
                     {
-                        fView.NhanVienToolStripMenuItem.Enabled = false;
+                        fView.NhanVienToolStripMenuItem.Enabled = true;
+                        fView.nhàCungCấpToolStripMenuItem1.Enabled = true;
+                        fView.doanhThuToolStripMenuItem.Enabled = true;
                     }
                 }
                 fView.ShowDialog();

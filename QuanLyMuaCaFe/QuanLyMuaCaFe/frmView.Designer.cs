@@ -63,12 +63,14 @@
             this.NhanVienToolStripMenuItem.Name = "NhanVienToolStripMenuItem";
             this.NhanVienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.NhanVienToolStripMenuItem.Text = "Nhân Viên";
+            this.NhanVienToolStripMenuItem.Click += new System.EventHandler(this.NhanVienToolStripMenuItem_Click);
             // 
             // nhàCungCấpToolStripMenuItem1
             // 
             this.nhàCungCấpToolStripMenuItem1.Name = "nhàCungCấpToolStripMenuItem1";
             this.nhàCungCấpToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nhàCungCấpToolStripMenuItem1.Text = "Nhà Cung Cấp";
+            this.nhàCungCấpToolStripMenuItem1.Click += new System.EventHandler(this.nhàCungCấpToolStripMenuItem1_Click);
             // 
             // doanhThuToolStripMenuItem
             // 
@@ -105,10 +107,10 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem quảnLíToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraTồnKhoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem NhanVienToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem1;
         public System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem quảnLíToolStripMenuItem;
     }
 }

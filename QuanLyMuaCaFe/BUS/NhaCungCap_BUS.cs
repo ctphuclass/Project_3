@@ -25,9 +25,17 @@ namespace BUS
         {
             return NhaCungCap_DAO.New_NCC(NhaCungCap_DTO);
         }
-        public static bool Update_NCC(NhaCungCap_DTO NhaCungCap_DTO)
+        public ResultMessage_DTO Update_NCC(NhaCungCap_DTO NhaCungCap_DTO)
         {
-            return NhaCungCap_DAO.Update_NCC(NhaCungCap_DTO);
+            try
+            {
+                NhaCungCap_DAO NhaCungCap_DAO = new NhaCungCap_DAO();
+                return NhaCungCap_DAO.Update_NCC(NhaCungCap_DTO);
+            }
+            catch
+            {
+                throw;
+            }
         }
         public static bool Delete_NCC(NhaCungCap_DTO NhaCungCap_DTO)
         {

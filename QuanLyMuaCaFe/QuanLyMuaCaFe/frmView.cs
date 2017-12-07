@@ -32,6 +32,16 @@ namespace QuanLyMuaCaFe
             
         }
 
-        
+        private void NhanVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNhanVien frmNV = new frmQuanLyNhanVien();
+            frmNV.ShowDialog();
+        }
+
+        private void nhàCungCấpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form1 frmNCC = new Form1();
+            frmNCC.ShowDialog();
+        }
     }
 }
