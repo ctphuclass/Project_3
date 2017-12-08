@@ -37,10 +37,22 @@ namespace BUS
                 throw;
             }    
         }
-        public static bool Delete_NV(NhanVien_DTO NhanVien_DTO)
+        public ResultMessage_DTO Delete_NV(NhanVien_DTO NhanVien_DTO)
         {
-            return NhanVien_DAO.Delete_NV(NhanVien_DTO);
+            try
+            {
+                NhanVien_DAO NhanVien_DAO = new NhanVien_DAO();
+                return NhanVien_DAO.Delete_NV(NhanVien_DTO);
+            }
+            catch
+            {
+                throw;
+            }
         }
-
+        public static List<NhanVien_DTO> Search_NV(NhanVien_DTO NhanVien_DTO)
+        {
+            NhanVien_DAO NhanVien_DAO = new NhanVien_DAO();
+            return NhanVien_DAO.Search_NV(NhanVien_DTO);
+        }
     }
 }

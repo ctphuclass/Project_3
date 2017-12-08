@@ -53,7 +53,7 @@
             this.datagrid123 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.btSearch = new System.Windows.Forms.Button();
+            this.tbCancel = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -65,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.tbEmail);
             this.groupBox1.Controls.Add(this.tbDiaChi);
             this.groupBox1.Controls.Add(this.tbSDT);
@@ -236,7 +237,7 @@
             // btUpdate
             // 
             this.btUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btUpdate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btUpdate.ForeColor = System.Drawing.Color.Blue;
             this.btUpdate.Location = new System.Drawing.Point(45, 62);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(96, 35);
@@ -248,7 +249,7 @@
             // btNewNV
             // 
             this.btNewNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btNewNV.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btNewNV.ForeColor = System.Drawing.Color.Blue;
             this.btNewNV.Location = new System.Drawing.Point(45, 19);
             this.btNewNV.Name = "btNewNV";
             this.btNewNV.Size = new System.Drawing.Size(96, 36);
@@ -260,7 +261,7 @@
             // btDelete
             // 
             this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btDelete.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btDelete.ForeColor = System.Drawing.Color.Blue;
             this.btDelete.Location = new System.Drawing.Point(45, 103);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(96, 35);
@@ -284,6 +285,7 @@
             this.datagrid123.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagrid123.Location = new System.Drawing.Point(3, 16);
             this.datagrid123.Name = "datagrid123";
+            this.datagrid123.ReadOnly = true;
             this.datagrid123.Size = new System.Drawing.Size(892, 262);
             this.datagrid123.TabIndex = 0;
             this.datagrid123.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid123_CellClick);
@@ -291,7 +293,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.btSearch);
+            this.groupBox4.Controls.Add(this.tbCancel);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.tbSearch);
             this.groupBox4.Location = new System.Drawing.Point(12, 176);
@@ -303,8 +305,8 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Location = new System.Drawing.Point(796, 12);
+            this.button1.ForeColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(682, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 31);
             this.button1.TabIndex = 16;
@@ -312,33 +314,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btSearch
+            // tbCancel
             // 
-            this.btSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btSearch.Location = new System.Drawing.Point(471, 12);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(106, 21);
-            this.btSearch.TabIndex = 15;
-            this.btSearch.Text = "Search";
-            this.btSearch.UseVisualStyleBackColor = true;
+            this.tbCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tbCancel.ForeColor = System.Drawing.Color.Blue;
+            this.tbCancel.Location = new System.Drawing.Point(784, 13);
+            this.tbCancel.Name = "tbCancel";
+            this.tbCancel.Size = new System.Drawing.Size(106, 30);
+            this.tbCancel.TabIndex = 15;
+            this.tbCancel.Text = "Cancel";
+            this.tbCancel.UseVisualStyleBackColor = true;
+            this.tbCancel.Click += new System.EventHandler(this.tbCancel_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Location = new System.Drawing.Point(217, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(257, 13);
+            this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Tìm kiếm theo Mã hoặc Tên của Nhân Viên:";
+            this.label9.Text = "Tìm kiếm:";
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(263, 13);
+            this.tbSearch.Location = new System.Drawing.Point(284, 18);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(202, 20);
+            this.tbSearch.Size = new System.Drawing.Size(309, 20);
             this.tbSearch.TabIndex = 14;
+            this.tbSearch.Text = "Nhập Mã hoặc Họ Tên Nhân Viên để tìm kiếm...\r\n";
+            this.tbSearch.Click += new System.EventHandler(this.tbSearch_Click);
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // frmQuanLyNhanVien
             // 
@@ -387,7 +394,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.DataGridView datagrid123;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btSearch;
+        private System.Windows.Forms.Button tbCancel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button button1;

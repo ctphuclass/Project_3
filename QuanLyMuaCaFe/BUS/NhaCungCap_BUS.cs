@@ -37,9 +37,22 @@ namespace BUS
                 throw;
             }
         }
-        public static bool Delete_NCC(NhaCungCap_DTO NhaCungCap_DTO)
+        public ResultMessage_DTO Delete_NCC(NhaCungCap_DTO NhaCungCap_DTO)
         {
-            return NhaCungCap_DAO.Delete_NCC(NhaCungCap_DTO);
+            try
+            {
+                NhaCungCap_DAO NhaCungCap_DAO = new NhaCungCap_DAO();
+                return NhaCungCap_DAO.Delete_NCC(NhaCungCap_DTO);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public static List<NhaCungCap_DTO> Search_NCC(NhaCungCap_DTO NhaCungCap_DTO)
+        {
+            NhaCungCap_DAO NhaCungCap_DAO = new NhaCungCap_DAO();
+            return NhaCungCap_DAO.Search_NCC(NhaCungCap_DTO);
         }
     }
 }

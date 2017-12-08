@@ -54,11 +54,11 @@ namespace QuanLyMuaCaFe
 
             if (NhaCungCap_BUS.New_NCC(NCC_DTO) == true)
             {
-                MessageBox.Show("Thêm Thành Công!", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm Thành Công!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Thêm Thất bại!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Nhà Cung Cấp đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Load();
         }
@@ -68,7 +68,7 @@ namespace QuanLyMuaCaFe
             ResultMessage_DTO result;
             if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin Nhà Cung Cấp!");
+                MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin Nhà Cung Cấp!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             NhaCungCap_DTO NCC_DTO = new NhaCungCap_DTO();
@@ -91,9 +91,10 @@ namespace QuanLyMuaCaFe
 
         private void btDelete_Click(object sender, EventArgs e)
         {
+            ResultMessage_DTO result;
             if (tbMaNCC.Text == "")
             {
-                MessageBox.Show("Hãy chọn Nhà Cung Cấp cần xóa!", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show("Hãy chọn Nhà Cung Cấp cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             NhaCungCap_DTO NCC_DTO = new NhaCungCap_DTO();
@@ -101,36 +102,39 @@ namespace QuanLyMuaCaFe
             NCC_DTO.TenNCC = tbTenNCC.Text;
             NCC_DTO.DiaChi = tbDiaChi.Text;
             NCC_DTO.SoDienThoai = tbSDT.Text;
-            if (NhaCungCap_BUS.Delete_NCC(NCC_DTO) == true)
+
+            result = BUS.Delete_NCC(NCC_DTO);
+            if (result.ResultCode_NCC == NCC_DTO.MaNCC)
             {
-                MessageBox.Show("Xóa Thành Công!", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show(result.ResultMessage_NCC, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Xóa Thất bại!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
+                MessageBox.Show(result.ResultMessage_NCC, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Load();
         }
-
-        private void tbDiaChi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            NhaCungCap_DTO NCC = new NhaCungCap_DTO();
+            NCC.MaNCC = tbSearch.Text;
+            List<NhaCungCap_DTO> Search = NhaCungCap_BUS.Search_NCC(NCC);
+            dataGridView1.DataSource = Search;
+            if (tbSearch.Text == "")
+            {
+                Load();
+            }
+        }
+
+        private void tbSearch_Click(object sender, EventArgs e)
+        {
+            tbSearch.Clear();
         }
     }
 }

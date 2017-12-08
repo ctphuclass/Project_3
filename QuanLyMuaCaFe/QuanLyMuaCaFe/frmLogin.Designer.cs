@@ -77,6 +77,7 @@
             this.tbPassword.Location = new System.Drawing.Point(386, 218);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(231, 26);
             this.tbPassword.TabIndex = 1;
             // 
@@ -92,7 +93,7 @@
             // 
             this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btLogin.Location = new System.Drawing.Point(452, 284);
+            this.btLogin.Location = new System.Drawing.Point(291, 284);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(112, 43);
             this.btLogin.TabIndex = 2;
@@ -104,7 +105,7 @@
             // 
             this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btCancel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btCancel.Location = new System.Drawing.Point(634, 284);
+            this.btCancel.Location = new System.Drawing.Point(473, 284);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(112, 43);
             this.btCancel.TabIndex = 3;
@@ -127,9 +128,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::QuanLyMuaCaFe.Properties.Resources.bgImage;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(869, 339);
+            this.ClientSize = new System.Drawing.Size(887, 339);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btCancel);

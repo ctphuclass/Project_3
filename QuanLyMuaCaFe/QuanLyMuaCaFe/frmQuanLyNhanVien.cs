@@ -14,6 +14,7 @@ namespace QuanLyMuaCaFe
 {
     public partial class frmQuanLyNhanVien : Form
     {
+        public ResultMessage_DTO result;
         public static NhanVien_BUS BUS = new NhanVien_BUS();
         public static NhanVien_DTO DTO = new NhanVien_DTO();
         public frmQuanLyNhanVien()
@@ -102,8 +103,6 @@ namespace QuanLyMuaCaFe
         {
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NhanVien_BUS NV_BUS = new NhanVien_BUS();
-            ResultMessage_DTO result;
-            
             if (tbMaNV.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,13 +146,16 @@ namespace QuanLyMuaCaFe
             NV_DTO.DiaChi = tbDiaChi.Text;
             NV_DTO.Email = tbEmail.Text;
             NV_DTO.SDT = tbSDT.Text;
-            if (NhanVien_BUS.Delete_NV(NV_DTO) == true)
+
+
+            result = BUS.Delete_NV(NV_DTO);
+            if (result.ResultCode_NV == NV_DTO.MaNV)
             {
-                MessageBox.Show("Xóa thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(result.ResultMessage_NV, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Xóa Thất bại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.ResultMessage_NV, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Load();
             Clear();
@@ -163,9 +165,26 @@ namespace QuanLyMuaCaFe
         {
             Clear();
         }
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            NhanVien_DTO NV = new NhanVien_DTO();
+            NV.MaNV = tbSearch.Text;
+            List<NhanVien_DTO> Search = NhanVien_BUS.Search_NV(NV);
+            datagrid123.DataSource = Search;
+            if(tbSearch.Text == "")
+            { 
+            Load();
+            }
+        }
 
+        private void tbCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-
-
+        private void tbSearch_Click(object sender, EventArgs e)
+        {
+            tbSearch.Clear();
+        }
     }
 }
