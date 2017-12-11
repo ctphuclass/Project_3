@@ -37,14 +37,16 @@ namespace QuanLyMuaCaFe
         }
         public void Clear()
         {
-            tbMaNV.Text = "";
-            tbHoTenNV.Text = "";
+            tbMaNV.Clear();
+            tbHoTenNV.Clear();
             dtPickerNgaySinh.Text = "";
             cbGioiTinh.Text = "";
-            tbQueQuan.Text = "";
-            tbDiaChi.Text = "";
-            tbEmail.Text = "";
-            tbSDT.Text = "";
+            tbQueQuan.Clear();
+            tbDiaChi.Clear();
+            tbEmail.Clear();
+            tbSDT.Clear();
+            tbSearch.Text = "Nhập Mã hoặc Họ Tên Nhân Viên để tìm kiếm...";
+            Load();
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace QuanLyMuaCaFe
             NV_DTO.SDT = tbSDT.Text;
 
             result = BUS.Update_NV(NV_DTO);
-            if (result.ResultCode_NV == NV_DTO.MaNV)
+            if (result.ResultCode_NV == "1")
             {
                 MessageBox.Show(result.ResultMessage_NV, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -149,7 +151,7 @@ namespace QuanLyMuaCaFe
 
 
             result = BUS.Delete_NV(NV_DTO);
-            if (result.ResultCode_NV == NV_DTO.MaNV)
+            if (result.ResultCode_NV == "1")
             {
                 MessageBox.Show(result.ResultMessage_NV, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

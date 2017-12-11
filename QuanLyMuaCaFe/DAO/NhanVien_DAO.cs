@@ -13,7 +13,6 @@ namespace DAO
     public  class NhanVien_DAO
     {
         public static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
-        //public static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N0ORAA2\SQLEXPRESS;Initial Catalog=QLBanHangCaFe;Integrated Security=True");
         public static List<NhanVien_DTO> GetListNV()
         {
             try

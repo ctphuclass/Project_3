@@ -17,6 +17,9 @@ namespace DTO
         //Khai báo giá trị kết quả cho frmQuanLyNCC
         public string ResultCode_NCC { get; set; }
         public string ResultMessage_NCC { get; set; }
+        //Khai báo giá trị kết quả cho frmMenu
+        public string ResultCode_Menu { get; set; }
+        public string ResultMessage_Menu { get; set; }
 
         public ResultMessage_DTO()
         {   //frmLogin giá trị trả về thành công hay thất bại
@@ -28,7 +31,9 @@ namespace DTO
             //frmQuanLyNCC giá trị trả về thành công hay thất bại
             ResultCode_NCC = "-1";
             ResultMessage_NCC = "DEFAULTERROR";
-
+            //frmMenu giá trị trả về thành công hay thất bại
+            ResultCode_Menu = "-1";
+            ResultMessage_Menu = "DEFAULTERROR";
     }
 }
 }

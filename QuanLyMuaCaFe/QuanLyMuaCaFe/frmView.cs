@@ -27,11 +27,6 @@ namespace QuanLyMuaCaFe
         {
             
         }
-        private void CheckQuyen()
-        {
-            
-        }
-
         private void NhanVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyNhanVien frmNV = new frmQuanLyNhanVien();
@@ -42,6 +37,17 @@ namespace QuanLyMuaCaFe
         {
             Form1 frmNCC = new Form1();
             frmNCC.ShowDialog();
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMenu frmMenu = new frmMenu();
+            frmMenu.ShowDialog();
+        }
+
+        private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

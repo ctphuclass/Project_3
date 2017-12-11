@@ -26,6 +26,13 @@ namespace QuanLyMuaCaFe
             List<NhaCungCap_DTO> DanhSachNCC = BUS.GetNccList();
             dataGridView1.DataSource = DanhSachNCC;
         }
+        public void Clear()
+        {
+            tbMaNCC.Clear();
+            tbTenNCC.Clear();
+            tbDiaChi.Clear();
+            tbSDT.Clear();
+        }
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             //Thực hiện khi click vào 1 dòng trên DataGridView sẽ gán các giá trị vào các textbox tương ứng
@@ -36,7 +43,6 @@ namespace QuanLyMuaCaFe
             tbDiaChi.Text = dgrv.Cells["DiaChi"].Value.ToString();
             tbSDT.Text = dgrv.Cells["SoDienThoai"].Value.ToString();
         }
-
         private void btNew_Click_1(object sender, EventArgs e)
         {
             // Thực hiện Tạo mới Nhà cung cấp
@@ -78,7 +84,7 @@ namespace QuanLyMuaCaFe
             NCC_DTO.SoDienThoai = tbSDT.Text;
 
             result = BUS.Update_NCC(NCC_DTO);
-            if (result.ResultCode_NCC == NCC_DTO.MaNCC)
+            if (result.ResultCode_NCC == "1")
             {
                 MessageBox.Show(result.ResultMessage_NCC, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -104,7 +110,7 @@ namespace QuanLyMuaCaFe
             NCC_DTO.SoDienThoai = tbSDT.Text;
 
             result = BUS.Delete_NCC(NCC_DTO);
-            if (result.ResultCode_NCC == NCC_DTO.MaNCC)
+            if (result.ResultCode_NCC == "1")
             {
                 MessageBox.Show(result.ResultMessage_NCC, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -135,6 +141,11 @@ namespace QuanLyMuaCaFe
         private void tbSearch_Click(object sender, EventArgs e)
         {
             tbSearch.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
