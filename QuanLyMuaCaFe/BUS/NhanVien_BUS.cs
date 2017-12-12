@@ -13,8 +13,7 @@ namespace BUS
         {
             try
             {
-                NhanVien_DAO NV_DAO = new NhanVien_DAO(); // Creating object of Dataccess
-                return NhanVien_DAO.GetListNV(); // calling Method of DataAccess
+                return NhanVien_DAO.GetListNV();
             }
             catch
             {

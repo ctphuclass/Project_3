@@ -151,7 +151,7 @@ namespace DAO
                 con.Open();
                 SqlCommand cmd = new SqlCommand("proc_SearchNCC", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SearchNCC", NhaCungCap_DTO.MaNCC);
+                cmd.Parameters.AddWithValue("@SearchNCC","%"+NhaCungCap_DTO.MaNCC+"%");
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

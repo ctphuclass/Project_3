@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietHDBH.cs" />
+    <Compile Include="HDBanHang_BUS.cs" />
     <Compile Include="Login_BUS.cs" />
     <Compile Include="Menu_BUS.cs" />
     <Compile Include="NhaCungCap_BUS.cs" />

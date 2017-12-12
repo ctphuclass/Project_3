@@ -162,7 +162,7 @@ namespace DAO
                 con.Open();
                 SqlCommand cmd = new SqlCommand("proc_SearchMenu", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SearchMenu", Menu_DTO.MaMon);
+                cmd.Parameters.AddWithValue("@SearchMenu","%"+Menu_DTO.MaMon+"%");
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

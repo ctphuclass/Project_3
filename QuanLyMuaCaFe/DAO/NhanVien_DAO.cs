@@ -165,7 +165,7 @@ namespace DAO
                 con.Open();
                 SqlCommand cmd = new SqlCommand("proc_SearchNV", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SearchNV", NhanVien_DTO.MaNV);
+                cmd.Parameters.AddWithValue("@SearchNV",'%'+NhanVien_DTO.MaNV+'%');
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
