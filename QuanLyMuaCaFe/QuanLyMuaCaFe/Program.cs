@@ -17,7 +17,7 @@ namespace QuanLyMuaCaFe
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmHoaDonBanHang());
+            Application.Run(new frmView());
         }
     }
 }

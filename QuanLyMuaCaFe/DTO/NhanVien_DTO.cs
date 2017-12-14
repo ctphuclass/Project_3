@@ -11,7 +11,7 @@ namespace DTO
         public string MaNV { get; set; }
         //public string MaNVmoi { get; set; }
         public string HoTenNV { get; set; }
-        public string NgaySinh { get; set; }
+        public DateTime NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string QueQuan { get; set; }
         public string DiaChi { get; set; }

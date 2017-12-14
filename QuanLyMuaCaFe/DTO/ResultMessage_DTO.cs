@@ -20,6 +20,9 @@ namespace DTO
         //Khai báo giá trị kết quả cho frmMenu
         public string ResultCode_Menu { get; set; }
         public string ResultMessage_Menu { get; set; }
+        //Khai báo giá trị kết quả cho frmNguyenLieu
+        public int ResultCode_NL { get; set; }
+        public string ResultMessage_NL { get; set; }
 
         public ResultMessage_DTO()
         {   //frmLogin giá trị trả về thành công hay thất bại
@@ -34,6 +37,9 @@ namespace DTO
             //frmMenu giá trị trả về thành công hay thất bại
             ResultCode_Menu = "-1";
             ResultMessage_Menu = "DEFAULTERROR";
+            //frmMenu giá trị trả về thành công hay thất bại
+            ResultCode_NL = -1;
+            ResultMessage_NL = "DEFAULTERROR";
+        }
     }
-}
 }

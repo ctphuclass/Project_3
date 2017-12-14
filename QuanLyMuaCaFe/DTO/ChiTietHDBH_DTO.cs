@@ -13,5 +13,6 @@ namespace DTO
         public int SoLuong { get; set; }
         public int DonGia { get; set; }
         public int ThanhTien { get; set; }
+        public int TongTien { get; set; }
     }
 }

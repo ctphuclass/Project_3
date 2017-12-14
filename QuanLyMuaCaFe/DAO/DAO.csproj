@@ -45,6 +45,7 @@
     <Compile Include="HDBanHang_DAO.cs" />
     <Compile Include="Login_DAO.cs" />
     <Compile Include="Menu_DAO.cs" />
+    <Compile Include="NguyenLieu_DAO.cs" />
     <Compile Include="NhaCungCap_DAO.cs" />
     <Compile Include="NhanVien_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

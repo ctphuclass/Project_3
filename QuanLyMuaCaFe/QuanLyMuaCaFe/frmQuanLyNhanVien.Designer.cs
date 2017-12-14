@@ -281,6 +281,7 @@
             // 
             // datagrid123
             // 
+            this.datagrid123.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagrid123.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagrid123.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagrid123.Location = new System.Drawing.Point(3, 16);
@@ -358,6 +359,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmQuanLyNhanVien";
             this.Text = "Quản Lý Nhân Viên";
+            this.Click += new System.EventHandler(this.frmQuanLyNhanVien_Click);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHDBH.cs" />
+    <Compile Include="ChiTietHDBH_BUS.cs" />
     <Compile Include="HDBanHang_BUS.cs" />
     <Compile Include="Login_BUS.cs" />
     <Compile Include="Menu_BUS.cs" />
+    <Compile Include="NguyenLieu_BUS.cs" />
     <Compile Include="NhaCungCap_BUS.cs" />
     <Compile Include="NhanVien_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

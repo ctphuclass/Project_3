@@ -17,8 +17,8 @@ namespace QuanLyMuaCaFe
         public frmChiTietHDBH()
         {
             InitializeComponent();
+            
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -37,12 +37,16 @@ namespace QuanLyMuaCaFe
         private void frmChiTietHDBH_Load(object sender, EventArgs e)
         {
             LoadCT();
+            ChiTietHDBH_DTO ct = new ChiTietHDBH_DTO();
+            ct.MaHoaDon = tbMaHD.Text;
+            List<ChiTietHDBH_DTO> List = ChiTietHDBH_BUS.TinhTongTien(ct);
+            tbTongTien.Text = List[0].TongTien.ToString();
         }
         public void LoadCT()
         {
             ChiTietHDBH_DTO ct = new ChiTietHDBH_DTO();
             ct.MaHoaDon = tbMaHD.Text;
-            List<ChiTietHDBH_DTO> List = ChiTietHDBH.Show_HDBH(ct);
+            List<ChiTietHDBH_DTO> List = ChiTietHDBH_BUS.Show_HDBH(ct);
             foreach(var item in List)
             {
                 ListViewItem Temon = new ListViewItem(item.TenMon.ToString());

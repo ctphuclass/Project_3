@@ -165,5 +165,12 @@ namespace QuanLyMuaCaFe
         {
             this.Close();
         }
+
+        private void frmMenu_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Focus();
+            tbSearch.Text = "Nhập Mã hoặc Tên Món để tìm kiếm...";
+            Load();
+        }
     }
 }

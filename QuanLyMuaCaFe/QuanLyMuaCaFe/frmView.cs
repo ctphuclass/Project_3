@@ -49,5 +49,17 @@ namespace QuanLyMuaCaFe
         {
 
         }
+
+        private void hóaĐơnBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonBanHang HDBH = new frmHoaDonBanHang();
+            HDBH.ShowDialog();
+        }
+
+        private void nguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNguyenLieu NL = new frmNguyenLieu();
+            NL.ShowDialog();
+        }
     }
 }

@@ -83,7 +83,7 @@ namespace QuanLyMuaCaFe
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.NgaySinh = DateTime.Parse(dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;
@@ -103,6 +103,7 @@ namespace QuanLyMuaCaFe
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
+            List<NhanVien_DTO> DanhSachNV = BUS.GetListNV();
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NhanVien_BUS NV_BUS = new NhanVien_BUS();
             if (tbMaNV.Text == "")
@@ -110,16 +111,31 @@ namespace QuanLyMuaCaFe
                 MessageBox.Show("Vui lòng nhập dữ liệu để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.NgaySinh = DateTime.Parse(dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;
             NV_DTO.Email = tbEmail.Text;
             NV_DTO.SDT = tbSDT.Text;
-
+            for(int i=0; i< DanhSachNV.Count;i++)
+            { 
+                if(DanhSachNV[i].MaNV == NV_DTO.MaNV
+                    && DanhSachNV[i].HoTenNV == NV_DTO.HoTenNV 
+                    && DanhSachNV[i].NgaySinh == NV_DTO.NgaySinh
+                    && DanhSachNV[i].GioiTinh == NV_DTO.GioiTinh
+                    && DanhSachNV[i].QueQuan== NV_DTO.QueQuan
+                    && DanhSachNV[i].Email== NV_DTO.Email
+                    && DanhSachNV[i].SDT== NV_DTO.SDT
+                    && DanhSachNV[i].DiaChi== NV_DTO.DiaChi
+                    )
+                {
+                    MessageBox.Show("Vui lòng nhập dữ liệu mới để sửa thông tin nhân viên!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                
+            }
             result = BUS.Update_NV(NV_DTO);
             if (result.ResultCode_NV == "1")
             {
@@ -142,7 +158,7 @@ namespace QuanLyMuaCaFe
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = dtPickerNgaySinh.Text;
+            NV_DTO.NgaySinh = DateTime.Parse( dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;
@@ -187,6 +203,13 @@ namespace QuanLyMuaCaFe
         private void tbSearch_Click(object sender, EventArgs e)
         {
             tbSearch.Clear();
+        }
+
+        private void frmQuanLyNhanVien_Click(object sender, EventArgs e)
+        {
+            datagrid123.Focus();
+            tbSearch.Text = "Nhập Mã hoặc Họ Tên Nhân Viên để tìm kiếm...";
+            Load();
         }
     }
 }

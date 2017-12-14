@@ -49,5 +49,41 @@ namespace DAO
             }
             return Danhsach;
         }
+        public static List<ChiTietHDBH_DTO> TinhTongTien(ChiTietHDBH_DTO ChiTietHDBH_DTO)
+        {
+            List<ChiTietHDBH_DTO> Danhsach = new List<ChiTietHDBH_DTO>();
+            ChiTietHDBH_DTO CTHD;
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("proc_CTHD3", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaHD", ChiTietHDBH_DTO.MaHoaDon);
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    CTHD = new ChiTietHDBH_DTO();
+                    CTHD.MaHoaDon = reader["MaHoaDon"].ToString();
+                    CTHD.TongTien = Int32.Parse(reader["TongTien"].ToString());
+                    //CTHD.DonGia = Int32.Parse(reader["DonGia"].ToString());
+                    //CTHD.ThanhTien = Int32.Parse(reader["ThanhTien"].ToString());
+                    Danhsach.Add(CTHD);
+                }
+                reader.Close();
+                cmd.Dispose();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return Danhsach;
+        }
     }
 }

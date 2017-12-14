@@ -44,6 +44,7 @@
     <Compile Include="HDBanHang_DTO.cs" />
     <Compile Include="Login_DTO.cs" />
     <Compile Include="Menu_DTO.cs" />
+    <Compile Include="NguyenLieu_DTO.cs" />
     <Compile Include="NhaCungCap_DTO.cs" />
     <Compile Include="NhanVien_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
