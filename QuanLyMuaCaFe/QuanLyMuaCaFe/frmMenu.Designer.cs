@@ -31,12 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
-            this.tbSLT = new System.Windows.Forms.TextBox();
             this.btDelete = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbSLN = new System.Windows.Forms.TextBox();
             this.btNew = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.btUpdate = new System.Windows.Forms.Button();
             this.tbDonGia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,6 +48,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ckMaMon = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -60,14 +57,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ckMaMon);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btCancel);
-            this.groupBox1.Controls.Add(this.tbSLT);
             this.groupBox1.Controls.Add(this.btDelete);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tbSLN);
             this.groupBox1.Controls.Add(this.btNew);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btUpdate);
             this.groupBox1.Controls.Add(this.tbDonGia);
             this.groupBox1.Controls.Add(this.label5);
@@ -83,7 +77,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(935, 128);
+            this.groupBox1.Size = new System.Drawing.Size(935, 107);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Menu";
@@ -114,14 +108,6 @@
             this.btCancel.UseVisualStyleBackColor = false;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
-            // tbSLT
-            // 
-            this.tbSLT.Location = new System.Drawing.Point(414, 71);
-            this.tbSLT.Name = "tbSLT";
-            this.tbSLT.Size = new System.Drawing.Size(182, 20);
-            this.tbSLT.TabIndex = 6;
-            this.tbSLT.Text = "0";
-            // 
             // btDelete
             // 
             this.btDelete.BackColor = System.Drawing.Color.Transparent;
@@ -135,26 +121,6 @@
             this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(319, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Số lượng tồn:";
-            // 
-            // tbSLN
-            // 
-            this.tbSLN.Location = new System.Drawing.Point(414, 43);
-            this.tbSLN.Name = "tbSLN";
-            this.tbSLN.Size = new System.Drawing.Size(182, 20);
-            this.tbSLN.TabIndex = 5;
-            this.tbSLN.Text = "0";
-            // 
             // btNew
             // 
             this.btNew.BackColor = System.Drawing.Color.Transparent;
@@ -167,18 +133,6 @@
             this.btNew.Text = "New";
             this.btNew.UseVisualStyleBackColor = false;
             this.btNew.Click += new System.EventHandler(this.btNew_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(319, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Số lượng nhập:";
             // 
             // btUpdate
             // 
@@ -195,7 +149,7 @@
             // 
             // tbDonGia
             // 
-            this.tbDonGia.Location = new System.Drawing.Point(96, 102);
+            this.tbDonGia.Location = new System.Drawing.Point(400, 46);
             this.tbDonGia.Name = "tbDonGia";
             this.tbDonGia.Size = new System.Drawing.Size(182, 20);
             this.tbDonGia.TabIndex = 3;
@@ -207,7 +161,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(15, 105);
+            this.label5.Location = new System.Drawing.Point(319, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 13;
@@ -234,7 +188,7 @@
             // 
             // tbDVT
             // 
-            this.tbDVT.Location = new System.Drawing.Point(414, 17);
+            this.tbDVT.Location = new System.Drawing.Point(400, 17);
             this.tbDVT.Name = "tbDVT";
             this.tbDVT.Size = new System.Drawing.Size(182, 20);
             this.tbDVT.TabIndex = 4;
@@ -272,9 +226,10 @@
             // 
             // tbMaMon
             // 
+            this.tbMaMon.Enabled = false;
             this.tbMaMon.Location = new System.Drawing.Point(96, 17);
             this.tbMaMon.Name = "tbMaMon";
-            this.tbMaMon.Size = new System.Drawing.Size(182, 20);
+            this.tbMaMon.Size = new System.Drawing.Size(161, 20);
             this.tbMaMon.TabIndex = 0;
             // 
             // label1
@@ -294,7 +249,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(315, 149);
+            this.label9.Location = new System.Drawing.Point(321, 131);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 19;
@@ -302,7 +257,7 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(386, 146);
+            this.tbSearch.Location = new System.Drawing.Point(392, 128);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(309, 20);
             this.tbSearch.TabIndex = 12;
@@ -313,9 +268,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 172);
+            this.groupBox3.Location = new System.Drawing.Point(12, 154);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(935, 213);
+            this.groupBox3.Size = new System.Drawing.Size(935, 181);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             // 
@@ -327,16 +282,26 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(929, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(929, 162);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // ckMaMon
+            // 
+            this.ckMaMon.AutoSize = true;
+            this.ckMaMon.Location = new System.Drawing.Point(263, 20);
+            this.ckMaMon.Name = "ckMaMon";
+            this.ckMaMon.Size = new System.Drawing.Size(15, 14);
+            this.ckMaMon.TabIndex = 18;
+            this.ckMaMon.UseVisualStyleBackColor = true;
+            this.ckMaMon.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 389);
+            this.ClientSize = new System.Drawing.Size(954, 338);
             this.ControlBox = false;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox3);
@@ -360,12 +325,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.TextBox tbSLT;
         private System.Windows.Forms.Button btDelete;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbSLN;
         private System.Windows.Forms.Button btNew;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.TextBox tbDonGia;
         private System.Windows.Forms.Label label5;
@@ -381,5 +342,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.CheckBox ckMaMon;
     }
 }

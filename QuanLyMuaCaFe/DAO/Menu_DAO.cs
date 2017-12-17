@@ -30,8 +30,6 @@ namespace DAO
                     Menu.Loai = reader["Loai"].ToString();
                     Menu.DonGia = Int32.Parse(reader["DonGia"].ToString());
                     Menu.DVT = reader["DVT"].ToString();
-                    Menu.SLN = Int32.Parse(reader["SLN"].ToString());
-                    Menu.SLT = Int32.Parse(reader["SLT"].ToString());
                     Danhsach.Add(Menu);
                 }
                 reader.Close();
@@ -55,7 +53,7 @@ namespace DAO
             try
             {
                 con.Open();
-                string New = string.Format("exec proc_NewMenu @MaMon='{0}',@TenMon=N'{1}',@Loai=N'{2}',@DonGia={3},@DVT=N'{4}',@SLN={5},@SLT={6}", Menu_DTO.MaMon, Menu_DTO.TenMon, Menu_DTO.Loai, Menu_DTO.DonGia, Menu_DTO.DVT, Menu_DTO.SLN, Menu_DTO.SLT);
+                string New = string.Format("exec proc_NewMenu @MaMon='{0}',@TenMon=N'{1}',@Loai=N'{2}',@DonGia={3},@DVT=N'{4}'", Menu_DTO.MaMon, Menu_DTO.TenMon, Menu_DTO.Loai, Menu_DTO.DonGia, Menu_DTO.DVT);
                 SqlCommand cmd = new SqlCommand(New, con);
                 int i = cmd.ExecuteNonQuery();
                 return true;
@@ -86,8 +84,6 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@Loai", Menu_DTO.Loai);
                 cmd.Parameters.AddWithValue("@DonGia", Menu_DTO.DonGia);
                 cmd.Parameters.AddWithValue("@DVT", Menu_DTO.DVT);
-                cmd.Parameters.AddWithValue("@SLN", Menu_DTO.SLN);
-                cmd.Parameters.AddWithValue("@SLT", Menu_DTO.SLT);
                 cmd.Parameters.AddWithValue("@pResultCode_Menu", result.ResultCode_Menu);
                 cmd.Parameters.AddWithValue("@pResultMessage_Menu", result.ResultMessage_Menu);
                 cmd.Parameters["@pResultCode_Menu"].Direction = ParameterDirection.Output;
@@ -95,7 +91,6 @@ namespace DAO
                 cmd.Parameters["@pResultMessage_Menu"].Size = 200;
                 con.Open();
                 cmd.ExecuteNonQuery();
-                //result.ResultCode_Menu = cmd.Parameters["@MaMon"].Value.ToString();
                 result.ResultCode_Menu = cmd.Parameters["@pResultCode_Menu"].Value.ToString();
                 result.ResultMessage_Menu = cmd.Parameters["@pResultMessage_Menu"].Value.ToString();
                 cmd.Dispose();
@@ -126,8 +121,6 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@Loai", Menu_DTO.Loai);
                 cmd.Parameters.AddWithValue("@DonGia", Menu_DTO.DonGia);
                 cmd.Parameters.AddWithValue("@DVT", Menu_DTO.DVT);
-                cmd.Parameters.AddWithValue("@SLN", Menu_DTO.SLN);
-                cmd.Parameters.AddWithValue("@SLT", Menu_DTO.SLT);
                 cmd.Parameters.AddWithValue("@pResultCode_Menu", result.ResultCode_Menu);
                 cmd.Parameters.AddWithValue("@pResultMessage_Menu", result.ResultMessage_Menu);
                 cmd.Parameters["@pResultCode_Menu"].Direction = ParameterDirection.Output;
@@ -172,8 +165,6 @@ namespace DAO
                     Menu.Loai = reader["Loai"].ToString();
                     Menu.DonGia = Int32.Parse(reader["DonGia"].ToString());
                     Menu.DVT = reader["DVT"].ToString();
-                    Menu.SLN = Int32.Parse(reader["SLN"].ToString());
-                    Menu.SLT = Int32.Parse(reader["SLT"].ToString());
                     Danhsach.Add(Menu);
                 }
                 reader.Close();

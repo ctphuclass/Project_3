@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class Menu_DTO
+    public class ChiTietCongThuc_DTO
     {
+        public string MaNL { get; set; }
+        public string TenNL { get; set; }
         public string MaMon { get; set; }
-        public string TenMon { get; set; }
-        public string Loai { get; set; }
-        public int DonGia { get; set; }
+        public float HamLuong { get; set; }
         public string DVT { get; set; }
-        //public int SLN { get; set; }
-        //public int SLT { get; set; }
     }
 }

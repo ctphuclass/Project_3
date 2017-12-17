@@ -46,17 +46,37 @@ namespace QuanLyMuaCaFe
         private void btNew_Click_1(object sender, EventArgs e)
         {
             // Thực hiện Tạo mới Nhà cung cấp
-            if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
+            List<NhaCungCap_DTO> DanhSachNCC = BUS.GetNccList();
+            if (ckMaNCC.Checked == false)
             {
-                MessageBox.Show("Vui lòng nhập dữ liệu!");
+                MessageBox.Show("Vui lòng check vào trong ô gần MaNL để thêm mới Nhà Cung Cấp!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+            else
+            { 
+                if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập dữ liệu!");
+                    return;
+                }
             }
             NhaCungCap_DTO NCC_DTO = new NhaCungCap_DTO();
             NCC_DTO.MaNCC = tbMaNCC.Text;
             NCC_DTO.TenNCC = tbTenNCC.Text;
             NCC_DTO.DiaChi = tbDiaChi.Text;
             NCC_DTO.SoDienThoai = tbSDT.Text;
-
+            for (int i = 0; i < DanhSachNCC.Count; i++)
+            {
+                if (DanhSachNCC[i].MaNCC == NCC_DTO.MaNCC
+                    && DanhSachNCC[i].TenNCC == NCC_DTO.TenNCC
+                    && DanhSachNCC[i].DiaChi == NCC_DTO.DiaChi
+                    && DanhSachNCC[i].SoDienThoai == NCC_DTO.SoDienThoai
+                    )
+                {
+                    MessageBox.Show("Dữ liệu đã tồn tại! Vui lòng thay đổi lại để thêm mới!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
 
             if (NhaCungCap_BUS.New_NCC(NCC_DTO) == true)
             {
@@ -66,11 +86,13 @@ namespace QuanLyMuaCaFe
             {
                 MessageBox.Show("Nhà Cung Cấp đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Clear();
             Load();
         }
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
+            List<NhaCungCap_DTO> DanhSachNCC = BUS.GetNccList();
             ResultMessage_DTO result;
             if (tbMaNCC.Text == "" || tbTenNCC.Text == "")
             {
@@ -82,7 +104,18 @@ namespace QuanLyMuaCaFe
             NCC_DTO.TenNCC = tbTenNCC.Text;
             NCC_DTO.DiaChi = tbDiaChi.Text;
             NCC_DTO.SoDienThoai = tbSDT.Text;
-
+            for (int i = 0; i < DanhSachNCC.Count; i++)
+            {
+                if (DanhSachNCC[i].MaNCC == NCC_DTO.MaNCC
+                    && DanhSachNCC[i].TenNCC == NCC_DTO.TenNCC
+                    && DanhSachNCC[i].DiaChi == NCC_DTO.DiaChi
+                    && DanhSachNCC[i].SoDienThoai == NCC_DTO.SoDienThoai
+                    )
+                {
+                    MessageBox.Show("Bạn chưa thay đổi dữ liệu cũ! Vui lòng thay đổi dữ liệu mới trước khi Update!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
             result = BUS.Update_NCC(NCC_DTO);
             if (result.ResultCode_NCC == "1")
             {
@@ -92,6 +125,7 @@ namespace QuanLyMuaCaFe
             {
                 MessageBox.Show(result.ResultMessage_NCC, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Clear();
             Load();
         }
 
@@ -118,7 +152,9 @@ namespace QuanLyMuaCaFe
             {
                 MessageBox.Show(result.ResultMessage_NCC, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Clear();
             Load();
+            
         }
         
         private void btCancel_Click(object sender, EventArgs e)
@@ -146,6 +182,18 @@ namespace QuanLyMuaCaFe
         private void button1_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void ckMaNCC_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckMaNCC.Checked == false)
+            {
+                tbMaNCC.Enabled = false;
+            }
+            else
+            {
+                tbMaNCC.Enabled = true;
+            }
         }
     }
 }

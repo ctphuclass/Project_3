@@ -47,6 +47,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.ckMaNCC = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -78,6 +79,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ckMaNCC);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btCancel);
             this.groupBox1.Controls.Add(this.tbSDT);
@@ -221,9 +223,10 @@
             // 
             // tbMaNCC
             // 
+            this.tbMaNCC.Enabled = false;
             this.tbMaNCC.Location = new System.Drawing.Point(96, 17);
             this.tbMaNCC.Name = "tbMaNCC";
-            this.tbMaNCC.Size = new System.Drawing.Size(182, 20);
+            this.tbMaNCC.Size = new System.Drawing.Size(161, 20);
             this.tbMaNCC.TabIndex = 0;
             // 
             // label1
@@ -269,6 +272,16 @@
             this.tbSearch.Click += new System.EventHandler(this.tbSearch_Click);
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
+            // ckMaNCC
+            // 
+            this.ckMaNCC.AutoSize = true;
+            this.ckMaNCC.Location = new System.Drawing.Point(263, 20);
+            this.ckMaNCC.Name = "ckMaNCC";
+            this.ckMaNCC.Size = new System.Drawing.Size(15, 14);
+            this.ckMaNCC.TabIndex = 20;
+            this.ckMaNCC.UseVisualStyleBackColor = true;
+            this.ckMaNCC.CheckedChanged += new System.EventHandler(this.ckMaNCC_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +325,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.CheckBox ckMaNCC;
     }
 }
 

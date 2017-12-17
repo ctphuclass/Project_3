@@ -59,7 +59,8 @@ namespace QuanLyMuaCaFe
 
         private void btNew_Click(object sender, EventArgs e)
         {
-            if(ckMaNL.Checked == false)
+            List<NguyenLieu_DTO> DanhSachNL = NguyenLieu_BUS.GetListNL();
+            if (ckMaNL.Checked == false)
             {
                 MessageBox.Show("Vui lòng check vào trong ô gần MaNL để thêm mới Nguyên Liệu!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
@@ -77,6 +78,18 @@ namespace QuanLyMuaCaFe
             NL.TenNL = tbTenNL.Text;
             NL.SoLuongNhap = Int32.Parse(tbSoLuong.Text);
             NL.DVT = cbDVT.Text;
+            for (int i = 0; i < DanhSachNL.Count; i++)
+            {
+                if (//DanhSachNL[i].MaNL == NL.MaNL&& 
+                    DanhSachNL[i].TenNL == NL.TenNL
+                    && DanhSachNL[i].SoLuongNhap == NL.SoLuongNhap
+                    && DanhSachNL[i].DVT == NL.DVT
+                    )
+                {
+                    MessageBox.Show("Dữ liệu đã tồn tại! Vui lòng thay đổi lại để thêm mới!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
 
             if (NguyenLieu_BUS.New_NL(NL) == true)
             {
@@ -123,7 +136,7 @@ namespace QuanLyMuaCaFe
                     && DanhSachNL[i].DVT == NL.DVT
                     )
                 {
-                    MessageBox.Show("Vui lòng nhập dữ liệu mới để sửa thông tin Nguyên Liệu!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bạn chưa thay đổi dữ liệu cũ! Vui lòng thay đổi dữ liệu mới trước khi Update", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }

@@ -33,9 +33,7 @@ namespace QuanLyMuaCaFe
             tbLoai.Text = "";
             tbDonGia.Text = "0";
             tbDVT.Text = "";
-            tbSLN.Text = "0";
-            tbSLT.Text = "0";
-
+            ckMaMon.Checked = false;
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {  
@@ -48,16 +46,23 @@ namespace QuanLyMuaCaFe
             tbLoai.Text = dgrv.Cells["Loai"].Value.ToString();
             tbDonGia.Text = dgrv.Cells["DonGia"].Value.ToString();
             tbDVT.Text = dgrv.Cells["DVT"].Value.ToString();
-            tbSLN.Text = dgrv.Cells["SLN"].Value.ToString();
-            tbSLT.Text = dgrv.Cells["SLT"].Value.ToString();
         }
 
         private void btNew_Click(object sender, EventArgs e)
         {
-            if(tbMaMon.Text == "")
+            List<Menu_DTO> DanhSachMenu = BUS.GetListMenu();
+            if (ckMaMon.Checked == false)
             {
-                MessageBox.Show("Vui lòng nhập dữ liệu!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng check vào trong ô gần MaMon để thêm mới Menu!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+            else
+            { 
+                if(tbMaMon.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập dữ liệu!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
             }
             Menu_DTO Menu_DTO = new Menu_DTO();
             Menu_DTO.MaMon = tbMaMon.Text;
@@ -65,8 +70,19 @@ namespace QuanLyMuaCaFe
             Menu_DTO.Loai = tbLoai.Text;
             Menu_DTO.DonGia = Int32.Parse(tbDonGia.Text);
             Menu_DTO.DVT = tbDVT.Text;
-            Menu_DTO.SLN = Int32.Parse(tbSLN.Text);
-            Menu_DTO.SLT = Int32.Parse(tbSLT.Text);
+
+            for (int i = 0; i < DanhSachMenu.Count; i++)
+            {
+                if (DanhSachMenu[i].TenMon == Menu_DTO.TenMon
+                    && DanhSachMenu[i].Loai == Menu_DTO.Loai
+                    && DanhSachMenu[i].DonGia == Menu_DTO.DonGia
+                    && DanhSachMenu[i].DVT == Menu_DTO.DVT
+                    )
+                {
+                    MessageBox.Show("Dữ liệu đã tồn tại! Vui lòng thay đổi lại để thêm mới!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
             if (Menu_BUS.New_Nenu(Menu_DTO) == true)
             {
                 MessageBox.Show("Thêm Thành Công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -86,6 +102,7 @@ namespace QuanLyMuaCaFe
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
+            List<Menu_DTO> DanhSachMenu = BUS.GetListMenu();
             ResultMessage_DTO result;
             if (tbMaMon.Text == "")
             {
@@ -98,9 +115,19 @@ namespace QuanLyMuaCaFe
             Menu_DTO.Loai = tbLoai.Text;
             Menu_DTO.DonGia = Int32.Parse(tbDonGia.Text);
             Menu_DTO.DVT = tbDVT.Text;
-            Menu_DTO.SLN = Int32.Parse(tbSLN.Text);
-            Menu_DTO.SLT = Int32.Parse(tbSLT.Text);
-
+            for (int i = 0; i < DanhSachMenu.Count; i++)
+            {
+                if (DanhSachMenu[i].MaMon == Menu_DTO.MaMon
+                    && DanhSachMenu[i].TenMon == Menu_DTO.TenMon
+                    && DanhSachMenu[i].Loai == Menu_DTO.Loai
+                    && DanhSachMenu[i].DonGia == Menu_DTO.DonGia
+                    && DanhSachMenu[i].DVT == Menu_DTO.DVT
+                    )
+                {
+                    MessageBox.Show("Bạn chưa thay đổi dữ liệu cũ! Vui lòng thay đổi dữ liệu mới trước khi Update!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
 
             result = BUS.Update_Menu(Menu_DTO);
             if (result.ResultCode_Menu == "1")
@@ -128,10 +155,6 @@ namespace QuanLyMuaCaFe
             Menu_DTO.Loai = tbLoai.Text;
             Menu_DTO.DonGia = Int32.Parse(tbDonGia.Text);
             Menu_DTO.DVT = tbDVT.Text;
-            Menu_DTO.SLN = Int32.Parse(tbSLN.Text);
-            Menu_DTO.SLT = Int32.Parse(tbSLT.Text);
-
-
             result = BUS.Delete_Menu(Menu_DTO);
             if (result.ResultCode_Menu == "1")
             {
@@ -171,6 +194,18 @@ namespace QuanLyMuaCaFe
             dataGridView1.Focus();
             tbSearch.Text = "Nhập Mã hoặc Tên Món để tìm kiếm...";
             Load();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckMaMon.Checked == true)
+            {
+                tbMaMon.Enabled = true;
+            }
+            else
+            {
+                tbMaMon.Enabled = false;
+            }
         }
     }
 }

@@ -52,14 +52,37 @@ namespace QuanLyMuaCaFe
 
         private void hóaĐơnBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHoaDonBanHang HDBH = new frmHoaDonBanHang();
-            HDBH.ShowDialog();
+           
         }
 
         private void nguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNguyenLieu NL = new frmNguyenLieu();
             NL.ShowDialog();
+        }
+
+        private void côngThứcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCongThuc CongThuc = new frmCongThuc();
+            CongThuc.ShowDialog();
+        }
+
+        private void hóaĐơnBánHàngToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmHoaDonBanHang HDBH = new frmHoaDonBanHang();
+            HDBH.ShowDialog();
+        }
+
+        private void tínhTồnKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThongKeTonKho TK = new frmThongKeTonKho();
+            TK.ShowDialog();
+        }
+
+        private void xemDoanhThuTrong1KhoảngThờiGianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDoanhThu DT = new frmDoanhThu();
+            DT.ShowDialog();
         }
     }
 }
