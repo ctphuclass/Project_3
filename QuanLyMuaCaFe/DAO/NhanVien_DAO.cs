@@ -27,7 +27,8 @@ namespace DAO
                     NV = new NhanVien_DTO();
                     NV.MaNV = reader["Ma_NV"].ToString();
                     NV.HoTenNV = reader["HoTen_NV"].ToString();
-                    NV.NgaySinh = DateTime.Parse( reader["NgaySinh"].ToString());
+                    NV.NgaySinh = reader["NgaySinh"].ToString();
+                    //NV.NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString());
                     NV.GioiTinh = reader["GioiTinh"].ToString();
                     NV.QueQuan = reader["QueQuan"].ToString();
                     NV.DiaChi = reader["DiaChi"].ToString();
@@ -64,7 +65,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                return false;
+                //return false;
                 throw ex;
             }
             finally
@@ -172,7 +173,8 @@ namespace DAO
                     NV = new NhanVien_DTO();
                     NV.MaNV = reader["Ma_NV"].ToString();
                     NV.HoTenNV = reader["HoTen_NV"].ToString();
-                    NV.NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString());
+                    NV.NgaySinh = reader["NgaySinh"].ToString();
+                    //NV.NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString());
                     NV.GioiTinh = reader["GioiTinh"].ToString();
                     NV.QueQuan = reader["QueQuan"].ToString();
                     NV.DiaChi = reader["DiaChi"].ToString();

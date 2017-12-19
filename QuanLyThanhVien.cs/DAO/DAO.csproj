@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED65E33A-BE31-468E-B140-E331D240C615}</ProjectGuid>
+    <ProjectGuid>{AAF50241-D10F-4A7E-A46E-90E3AD863564}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DTO</RootNamespace>
-    <AssemblyName>DTO</AssemblyName>
+    <RootNamespace>DAO</RootNamespace>
+    <AssemblyName>DAO</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,21 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietCongThuc_DTO.cs" />
-    <Compile Include="ChiTietHDBH_DTO.cs" />
-    <Compile Include="CongThuc_DTO.cs" />
-    <Compile Include="CTHD_NhapHang_DTO.cs" />
-    <Compile Include="DoanhThu_DTO.cs" />
-    <Compile Include="HDBanHang_DTO.cs" />
-    <Compile Include="HoaDonNhapHang_DTO.cs" />
-    <Compile Include="Login_DTO.cs" />
-    <Compile Include="Menu_DTO.cs" />
-    <Compile Include="NguyenLieu_DTO.cs" />
-    <Compile Include="NhaCungCap_DTO.cs" />
-    <Compile Include="NhanVien_DTO.cs" />
+    <Compile Include="ThanhVien_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultMessage_DTO.cs" />
-    <Compile Include="ThongKeTonKho_DTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{09039d85-32a0-4b06-a144-ba9f192d6943}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

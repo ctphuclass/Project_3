@@ -54,7 +54,7 @@ namespace DAO
             {
                 con.Open();
                 string New = string.Format("exec proc_NewNL @MaNL='{0}',@TenNL=N'{1}',@SoLuongNhap='{2}',@DVT=N'{3}'", NguyenLieu_DTO.MaNL, NguyenLieu_DTO.TenNL, NguyenLieu_DTO.SoLuongNhap, NguyenLieu_DTO.DVT);
-                SqlCommand cmd = new SqlCommand(New, con);//@MaNL,@TenNL,@SoLuongNhap,@DVT
+                SqlCommand cmd = new SqlCommand(New, con);
                 int i = cmd.ExecuteNonQuery();
                 return true;
             }

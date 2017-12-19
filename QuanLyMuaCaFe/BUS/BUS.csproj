@@ -43,8 +43,10 @@
     <Compile Include="ChiTietCongThuc_BUS.cs" />
     <Compile Include="ChiTietHDBH_BUS.cs" />
     <Compile Include="CongThuc_BUS.cs" />
+    <Compile Include="CTHD_NhapHang_BUS.cs" />
     <Compile Include="DoanhThu_BUS.cs" />
     <Compile Include="HDBanHang_BUS.cs" />
+    <Compile Include="HoaDonNhapHang_BUS.cs" />
     <Compile Include="Login_BUS.cs" />
     <Compile Include="Menu_BUS.cs" />
     <Compile Include="NguyenLieu_BUS.cs" />

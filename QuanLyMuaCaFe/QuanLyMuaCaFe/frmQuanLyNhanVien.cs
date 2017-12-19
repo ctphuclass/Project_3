@@ -39,7 +39,7 @@ namespace QuanLyMuaCaFe
         {
             tbMaNV.Clear();
             tbHoTenNV.Clear();
-            dtPickerNgaySinh.Text = "";
+            //dtPickerNgaySinh.Text = "";
             cbGioiTinh.Text = "";
             tbQueQuan.Clear();
             tbDiaChi.Clear();
@@ -83,12 +83,14 @@ namespace QuanLyMuaCaFe
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = DateTime.Parse(dtPickerNgaySinh.Text);
+            NV_DTO.NgaySinh = (dtPickerNgaySinh.Text);
+            //NV_DTO.NgaySinh = Convert.ToDateTime(dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;
             NV_DTO.Email = tbEmail.Text;
             NV_DTO.SDT = tbSDT.Text;
+
             if (NhanVien_BUS.New_NV(NV_DTO) == true)
             {
                 MessageBox.Show("Thêm thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -113,7 +115,8 @@ namespace QuanLyMuaCaFe
             }
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = DateTime.Parse(dtPickerNgaySinh.Text);
+            NV_DTO.NgaySinh = (dtPickerNgaySinh.Text);
+            //NV_DTO.NgaySinh = DateTime.Parse(dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;
@@ -158,7 +161,8 @@ namespace QuanLyMuaCaFe
             NhanVien_DTO NV_DTO = new NhanVien_DTO();
             NV_DTO.MaNV = tbMaNV.Text;
             NV_DTO.HoTenNV = tbHoTenNV.Text;
-            NV_DTO.NgaySinh = DateTime.Parse( dtPickerNgaySinh.Text);
+            NV_DTO.NgaySinh = (dtPickerNgaySinh.Text);
+            //NV_DTO.NgaySinh = DateTime.Parse( dtPickerNgaySinh.Text);
             NV_DTO.GioiTinh = cbGioiTinh.Text;
             NV_DTO.QueQuan = tbQueQuan.Text;
             NV_DTO.DiaChi = tbDiaChi.Text;

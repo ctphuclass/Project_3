@@ -41,7 +41,6 @@ namespace QuanLyMuaCaFe
                 
                 if (Login_BUS.CheckPermission(Login_DTO) == true)
                 {
-
                     if (Login_DTO.Quyen == "nhanvien")
                     {
                         fView.doanhThuToolStripMenuItem.Enabled = false;

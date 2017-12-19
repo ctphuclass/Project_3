@@ -139,6 +139,7 @@
             this.dtPickerNgaySinh.Name = "dtPickerNgaySinh";
             this.dtPickerNgaySinh.Size = new System.Drawing.Size(160, 20);
             this.dtPickerNgaySinh.TabIndex = 2;
+            this.dtPickerNgaySinh.Value = new System.DateTime(2017, 12, 18, 0, 0, 0, 0);
             // 
             // cbGioiTinh
             // 

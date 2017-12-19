@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsGioiTinh.cs" />
+    <Compile Include="CTHD_NhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CTHD_NhapHang.Designer.cs">
+      <DependentUpon>CTHD_NhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChiTietCongThuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="frmHoaDonBanHang.Designer.cs">
       <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoaDonNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDonNhapHang.Designer.cs">
+      <DependentUpon>frmHoaDonNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -121,6 +133,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CTHD_NhapHang.resx">
+      <DependentUpon>CTHD_NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChiTietCongThuc.resx">
       <DependentUpon>frmChiTietCongThuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDonBanHang.resx">
       <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDonNhapHang.resx">
+      <DependentUpon>frmHoaDonNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

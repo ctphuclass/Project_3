@@ -10,33 +10,31 @@ using DTO;
 
 namespace DAO
 {
-    public class ChiTietHDBH_DAO
+    public class HoaDonNhapHang_DAO
     {
         public static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
-        public static List<ChiTietHDBH_DTO> Show_HDBH(ChiTietHDBH_DTO ChiTietHDBH_DTO)
+        public static List<HoaDonNhapHang_DTO> GetListHDNH()
         {
-            List<ChiTietHDBH_DTO> Danhsach = new List<ChiTietHDBH_DTO>();
-            ChiTietHDBH_DTO CTHD;
+            List<HoaDonNhapHang_DTO> Danhsach = new List<HoaDonNhapHang_DTO>();
             try
             {
+                HoaDonNhapHang_DTO HD;
                 con.Open();
-                SqlCommand cmd = new SqlCommand("proc_CTHD2", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaHD",ChiTietHDBH_DTO.MaHoaDon);
+                SqlCommand cmd = new SqlCommand("exec proc_GetListHDNhapHang", con);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    CTHD = new ChiTietHDBH_DTO();
-                    CTHD.TenMon = reader["TenMon"].ToString();
-                    CTHD.SoLuong =Int32.Parse(reader["SoLuong"].ToString());
-                    CTHD.DonGia = Int32.Parse(reader["DonGia"].ToString());
-                    CTHD.ThanhTien = Int32.Parse(reader["ThanhTien"].ToString());
-                    Danhsach.Add(CTHD);
+                    HD = new HoaDonNhapHang_DTO();
+                    HD.MaHoaDonNhap = reader["MaHD_Nhap"].ToString();
+                    HD.MaNhaCungCap = reader["MaNCC"].ToString();
+                    HD.NgayNhap = DateTime.Parse(reader["NgayNhap"].ToString());
+                    Danhsach.Add(HD);
                 }
                 reader.Close();
                 cmd.Dispose();
+
             }
-            catch
+            catch (Exception ex)
             {
                 throw;
             }
@@ -49,23 +47,24 @@ namespace DAO
             }
             return Danhsach;
         }
-        public static List<ChiTietHDBH_DTO> TinhTongTien(ChiTietHDBH_DTO ChiTietHDBH_DTO)
+        public static List<HoaDonNhapHang_DTO> Search_HDBH(HoaDonNhapHang_DTO HoaDonNhapHang_DTO)
         {
-            List<ChiTietHDBH_DTO> Danhsach = new List<ChiTietHDBH_DTO>();
-            ChiTietHDBH_DTO CTHD;
+            List<HoaDonNhapHang_DTO> Danhsach = new List<HoaDonNhapHang_DTO>();
+            HoaDonNhapHang_DTO HD;
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("proc_CTHD3", con);
+                SqlCommand cmd = new SqlCommand("proc_SearchHDNhapHang", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaHD", ChiTietHDBH_DTO.MaHoaDon);
+                cmd.Parameters.AddWithValue("@SearchHDNH", "%" + HoaDonNhapHang_DTO.MaHoaDonNhap + "%");
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    CTHD = new ChiTietHDBH_DTO();
-                    CTHD.MaHoaDon = reader["MaHoaDon"].ToString();
-                    CTHD.TongTien = Int32.Parse(reader["TongTien"].ToString());
-                    Danhsach.Add(CTHD);
+                    HD = new HoaDonNhapHang_DTO();
+                    HD.MaHoaDonNhap = reader["MaHD_Nhap"].ToString();
+                    HD.MaNhaCungCap = reader["MaNCC"].ToString();
+                    HD.NgayNhap = DateTime.Parse(reader["NgayNhap"].ToString());
+                    Danhsach.Add(HD);
                 }
                 reader.Close();
                 cmd.Dispose();

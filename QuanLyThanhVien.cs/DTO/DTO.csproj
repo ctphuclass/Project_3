@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED65E33A-BE31-468E-B140-E331D240C615}</ProjectGuid>
+    <ProjectGuid>{09039D85-32A0-4B06-A144-BA9F192D6943}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DTO</RootNamespace>
@@ -40,21 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietCongThuc_DTO.cs" />
-    <Compile Include="ChiTietHDBH_DTO.cs" />
-    <Compile Include="CongThuc_DTO.cs" />
-    <Compile Include="CTHD_NhapHang_DTO.cs" />
-    <Compile Include="DoanhThu_DTO.cs" />
-    <Compile Include="HDBanHang_DTO.cs" />
-    <Compile Include="HoaDonNhapHang_DTO.cs" />
-    <Compile Include="Login_DTO.cs" />
-    <Compile Include="Menu_DTO.cs" />
-    <Compile Include="NguyenLieu_DTO.cs" />
-    <Compile Include="NhaCungCap_DTO.cs" />
-    <Compile Include="NhanVien_DTO.cs" />
+    <Compile Include="ThanhVien_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultMessage_DTO.cs" />
-    <Compile Include="ThongKeTonKho_DTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

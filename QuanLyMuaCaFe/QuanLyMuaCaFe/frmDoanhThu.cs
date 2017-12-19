@@ -70,7 +70,7 @@ namespace QuanLyMuaCaFe
             string filename = "";
             SaveFileDialog Save = new SaveFileDialog();
             Save.Title = "In Thống Kê Doanh Thu";
-            Save.Filter = "Text File (.txt)|*.txt";
+            Save.Filter = "Text File (.xlsx)|*.xlsx";
             if (Save.ShowDialog() == DialogResult.OK)
             {
                 filename = Save.FileName.ToString();
@@ -83,7 +83,7 @@ namespace QuanLyMuaCaFe
                         sw.WriteLine("");
                        for(int i = 0;i<dgrv.Rows.Count;i++)
                         {
-                            for (int j=3; j < dgrv.Columns.Count - 1; j++)
+                            for (int j=3; j < dgrv.Columns.Count-1; j++)
                             {
                                     sw.Write("\t"+ dgrv.Rows[i].Cells[j].Value.ToString() + "\t");
                             }

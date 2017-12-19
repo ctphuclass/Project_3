@@ -45,9 +45,8 @@ namespace QuanLyMuaCaFe
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             HDBanHang_DTO CTHD_DTO = new HDBanHang_DTO();
-            frmChiTietHDBH CTHD = new frmChiTietHDBH();
             CTHD_DTO.MaHoaDon = this.dataGridView1.CurrentRow.Cells[0].ToString();
-
+            frmChiTietHDBH CTHD = new frmChiTietHDBH();
             CTHD.tbMaHD.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
             CTHD.tbTenBan.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
             CTHD.tbMaNV.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
