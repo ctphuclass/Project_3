@@ -15,5 +15,6 @@ namespace DTO
         public int DonGia { get; set; }
         public string DVT { get; set; }
         public int TongTien { get; set; }
+        public DateTime NgayNhap { get; set; }
     }
 }

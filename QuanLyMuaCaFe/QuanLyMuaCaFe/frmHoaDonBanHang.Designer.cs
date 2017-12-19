@@ -32,6 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btIn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,11 +78,24 @@
             this.tbSearch.Click += new System.EventHandler(this.tbSearch_Click);
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
+            // btIn
+            // 
+            this.btIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btIn.ForeColor = System.Drawing.Color.Blue;
+            this.btIn.Location = new System.Drawing.Point(619, 288);
+            this.btIn.Name = "btIn";
+            this.btIn.Size = new System.Drawing.Size(87, 32);
+            this.btIn.TabIndex = 22;
+            this.btIn.Text = "In...";
+            this.btIn.UseVisualStyleBackColor = true;
+            this.btIn.Click += new System.EventHandler(this.btIn_Click);
+            // 
             // frmHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 294);
+            this.ClientSize = new System.Drawing.Size(721, 332);
+            this.Controls.Add(this.btIn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.groupBox1);
@@ -101,5 +115,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button btIn;
     }
 }

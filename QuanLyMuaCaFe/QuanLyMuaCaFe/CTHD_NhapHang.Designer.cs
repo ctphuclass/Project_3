@@ -41,8 +41,6 @@
             this.tbNgayLap = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbMaNCC = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbMaHDNhap = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,8 +60,6 @@
             this.groupBox2.Controls.Add(this.tbNgayLap);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.tbMaNCC);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.tbMaHDNhap);
             this.groupBox2.Location = new System.Drawing.Point(12, 120);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(659, 229);
@@ -75,7 +71,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(435, 43);
+            this.label9.Location = new System.Drawing.Point(435, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 33;
@@ -87,7 +83,7 @@
             this.tbTongTien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTongTien.Enabled = false;
             this.tbTongTien.ForeColor = System.Drawing.Color.Red;
-            this.tbTongTien.Location = new System.Drawing.Point(529, 43);
+            this.tbTongTien.Location = new System.Drawing.Point(529, 17);
             this.tbTongTien.Name = "tbTongTien";
             this.tbTongTien.Size = new System.Drawing.Size(124, 13);
             this.tbTongTien.TabIndex = 32;
@@ -101,9 +97,9 @@
             this.SoLuong,
             this.DonGia,
             this.DVT});
-            this.listView1.Location = new System.Drawing.Point(6, 81);
+            this.listView1.Location = new System.Drawing.Point(6, 36);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(648, 142);
+            this.listView1.Size = new System.Drawing.Size(648, 187);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -139,7 +135,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(6, 43);
+            this.label8.Location = new System.Drawing.Point(12, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 31;
@@ -151,7 +147,7 @@
             this.tbNgayLap.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbNgayLap.Enabled = false;
             this.tbNgayLap.ForeColor = System.Drawing.Color.Black;
-            this.tbNgayLap.Location = new System.Drawing.Point(77, 42);
+            this.tbNgayLap.Location = new System.Drawing.Point(83, 16);
             this.tbNgayLap.Name = "tbNgayLap";
             this.tbNgayLap.Size = new System.Drawing.Size(147, 13);
             this.tbNgayLap.TabIndex = 30;
@@ -162,7 +158,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(224, 16);
+            this.label7.Location = new System.Drawing.Point(245, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 13);
             this.label7.TabIndex = 29;
@@ -174,35 +170,11 @@
             this.tbMaNCC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbMaNCC.Enabled = false;
             this.tbMaNCC.ForeColor = System.Drawing.Color.Black;
-            this.tbMaNCC.Location = new System.Drawing.Point(344, 16);
+            this.tbMaNCC.Location = new System.Drawing.Point(365, 17);
             this.tbMaNCC.Name = "tbMaNCC";
             this.tbMaNCC.Size = new System.Drawing.Size(124, 13);
             this.tbMaNCC.TabIndex = 28;
             this.tbMaNCC.Text = "NV";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Mã Hóa Đơn Nhập:";
-            // 
-            // tbMaHDNhap
-            // 
-            this.tbMaHDNhap.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.tbMaHDNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbMaHDNhap.Enabled = false;
-            this.tbMaHDNhap.ForeColor = System.Drawing.Color.Black;
-            this.tbMaHDNhap.Location = new System.Drawing.Point(128, 16);
-            this.tbMaHDNhap.Multiline = true;
-            this.tbMaHDNhap.Name = "tbMaHDNhap";
-            this.tbMaHDNhap.Size = new System.Drawing.Size(96, 20);
-            this.tbMaHDNhap.TabIndex = 24;
-            this.tbMaHDNhap.Text = "HD";
             // 
             // groupBox1
             // 
@@ -292,8 +264,6 @@
         public System.Windows.Forms.TextBox tbNgayLap;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox tbMaNCC;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox tbMaHDNhap;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

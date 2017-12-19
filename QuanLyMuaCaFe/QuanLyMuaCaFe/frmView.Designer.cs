@@ -38,10 +38,10 @@
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemDoanhThuTrong1KhoảngThờiGianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraTồnKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tínhTồnKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnBánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnNhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tínhTồnKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,6 +129,13 @@
             this.kiểmTraTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.kiểmTraTồnKhoToolStripMenuItem.Text = "Quản Lí Tồn Kho";
             // 
+            // tínhTồnKhoToolStripMenuItem
+            // 
+            this.tínhTồnKhoToolStripMenuItem.Name = "tínhTồnKhoToolStripMenuItem";
+            this.tínhTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.tínhTồnKhoToolStripMenuItem.Text = "Tính Tồn Kho";
+            this.tínhTồnKhoToolStripMenuItem.Click += new System.EventHandler(this.tínhTồnKhoToolStripMenuItem_Click);
+            // 
             // hóaĐơnToolStripMenuItem
             // 
             this.hóaĐơnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,13 +157,7 @@
             this.hóaĐơnNhậpHàngToolStripMenuItem.Name = "hóaĐơnNhậpHàngToolStripMenuItem";
             this.hóaĐơnNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.hóaĐơnNhậpHàngToolStripMenuItem.Text = "Hóa Đơn Nhập Hàng";
-            // 
-            // tínhTồnKhoToolStripMenuItem
-            // 
-            this.tínhTồnKhoToolStripMenuItem.Name = "tínhTồnKhoToolStripMenuItem";
-            this.tínhTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.tínhTồnKhoToolStripMenuItem.Text = "Tính Tồn Kho";
-            this.tínhTồnKhoToolStripMenuItem.Click += new System.EventHandler(this.tínhTồnKhoToolStripMenuItem_Click);
+            this.hóaĐơnNhậpHàngToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnNhậpHàngToolStripMenuItem_Click);
             // 
             // frmView
             // 

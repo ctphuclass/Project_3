@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using Microsoft.Office.Interop.Excel;
 
 namespace QuanLyMuaCaFe
 {
@@ -58,19 +59,11 @@ namespace QuanLyMuaCaFe
         }
         private void Printfile(DataGridView dgrv)
         {
-            DoanhThu_DTO DoanhThu = new DoanhThu_DTO();
-            DoanhThu.NgayDau = DateTime.Parse(dtNgayDau.Text);
-            DoanhThu.NgayCuoi = DateTime.Parse(dtNgayCuoi.Text);
-            List<DoanhThu_DTO> DT1 = DoanhThu_BUS.TongDoanhThu(DoanhThu);
-            if (DT1.Count == 0)
-            {
-                MessageBox.Show("Không có báo cáo Doanh Thu để in ra!Vui lòng kiểm tra lại trước khi in!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                return;
-            }
+
             string filename = "";
             SaveFileDialog Save = new SaveFileDialog();
             Save.Title = "In Thống Kê Doanh Thu";
-            Save.Filter = "Text File (.xlsx)|*.xlsx";
+            Save.Filter = "Text File (.txt)|*.txt";
             if (Save.ShowDialog() == DialogResult.OK)
             {
                 filename = Save.FileName.ToString();
@@ -79,13 +72,13 @@ namespace QuanLyMuaCaFe
                     using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
                     {
                         sw.WriteLine("Thông tin chi tiết doanh thu từ ngày:{0} đến ngày: {1}", dtNgayDau.Text, dtNgayCuoi.Text);
-                        sw.Write("\t"+"Mã hóa đơn"+"\t"+"Mã Bàn"+"\t"+"\t"+"Thành Tiền"+"\t");
+                        sw.Write("\t" + "Mã hóa đơn" + "\t" + "Mã Bàn" + "\t" + "\t" + "Thành Tiền" + "\t");
                         sw.WriteLine("");
-                       for(int i = 0;i<dgrv.Rows.Count;i++)
+                        for (int i = 0; i < dgrv.Rows.Count; i++)
                         {
-                            for (int j=3; j < dgrv.Columns.Count-1; j++)
+                            for (int j = 3; j < dgrv.Columns.Count - 1; j++)
                             {
-                                    sw.Write("\t"+ dgrv.Rows[i].Cells[j].Value.ToString() + "\t");
+                                sw.Write("\t" + dgrv.Rows[i].Cells[j].Value.ToString() + "\t");
                             }
                             sw.WriteLine("");
                         }
@@ -97,7 +90,51 @@ namespace QuanLyMuaCaFe
 
         private void btIn_Click(object sender, EventArgs e)
         {
-            Printfile(dataGridView1);
+            DoanhThu_DTO DoanhThu = new DoanhThu_DTO();
+            DoanhThu.NgayDau = DateTime.Parse(dtNgayDau.Text);
+            DoanhThu.NgayCuoi = DateTime.Parse(dtNgayCuoi.Text);
+            List<DoanhThu_DTO> DT1 = DoanhThu_BUS.TongDoanhThu(DoanhThu);
+            if (DT1.Count == 0)
+            {
+                MessageBox.Show("Không có báo cáo Doanh Thu để in ra!Vui lòng kiểm tra lại trước khi in!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataGridView drgv = new DataGridView();
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Wordnook|*.xls", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    ws.Cells[1, 1] = "Cà phê The Cold House";
+                    ws.Cells[2, 1] = "Editor: Trần Đức Sơn";
+                    //ws.Cells[3, 1] = string.Format("Doanh thu theo bàn số {0}", comboBox1.Text);
+                    ws.Cells[3, 1] = string.Format("Tổng doanh thu là: {0} VND", tbTongDoanhThu.Text);
+                    ws.Cells[4, 3] = "Mã Hóa Đơn";
+                    ws.Cells[4, 4] = "Mã Bàn";
+                    ws.Cells[4, 5] = "Thành Tiền";
+
+                    int z = 5;
+                    //foreach (ListViewItem item in .Items)
+                    //{
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        for (int j = 5; j < dataGridView1.Columns.Count-1; j++)
+                        {
+                            for(int k = 2; k >= 0; k--)
+                            {
+                                ws.Cells[i + 5, j-k] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                            }
+                        }
+                    }
+                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Impot Success!");
+                }
+            }
         }
     }
 }

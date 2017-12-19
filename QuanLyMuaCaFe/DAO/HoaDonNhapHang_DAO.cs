@@ -82,5 +82,37 @@ namespace DAO
             }
             return Danhsach;
         }
+        public static List<HoaDonNhapHang_DTO> TinhTongTien()
+        {
+            List<HoaDonNhapHang_DTO> Danhsach = new List<HoaDonNhapHang_DTO>();
+            HoaDonNhapHang_DTO CTHD;
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("proc_TongHDNhapHang", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    CTHD = new HoaDonNhapHang_DTO();
+                    CTHD.TongTien = Int32.Parse(reader["TongTien"].ToString());
+                    Danhsach.Add(CTHD);
+                }
+                reader.Close();
+                cmd.Dispose();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return Danhsach;
+        }
     }
 }

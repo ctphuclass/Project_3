@@ -17,5 +17,9 @@ namespace BUS
         {
             return HoaDonNhapHang_DAO.Search_HDBH(HoaDonNhapHang_DTO);
         }
+        public static List<HoaDonNhapHang_DTO> TinhTongTien()
+        {
+            return HoaDonNhapHang_DAO.TinhTongTien();
+        }
     }
 }

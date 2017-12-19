@@ -21,7 +21,7 @@ namespace QuanLyMuaCaFe
         public void LoadCongThuc()
         {
             CTHD_NhapHang_DTO ct = new CTHD_NhapHang_DTO();
-            ct.MaHDNH = tbMaHDNhap.Text;
+            ct.NgayNhap =DateTime.Parse(tbNgayLap.Text);
             List<CTHD_NhapHang_DTO> List = CTHD_NhapHang_BUS.Show_HDNH(ct);
             foreach (var item in List)
             {
@@ -32,7 +32,8 @@ namespace QuanLyMuaCaFe
                 MaMon.SubItems.Add(item.DVT.ToString());
                 listView1.Items.Add(MaMon);
             }
-            tbTongTien.Text= List[0].TongTien.ToString(); 
+            List<CTHD_NhapHang_DTO> List1 = CTHD_NhapHang_BUS.TinhTongTien(ct);
+            tbTongTien.Text= List1[0].TongTien.ToString(); 
         }
 
         private void CTHD_NhapHang_Load(object sender, EventArgs e)

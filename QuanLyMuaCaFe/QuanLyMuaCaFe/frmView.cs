@@ -84,5 +84,11 @@ namespace QuanLyMuaCaFe
             frmDoanhThu DT = new frmDoanhThu();
             DT.ShowDialog();
         }
+
+        private void hóaĐơnNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonNhapHang NH = new frmHoaDonNhapHang();
+            NH.ShowDialog();
+        }
     }
 }

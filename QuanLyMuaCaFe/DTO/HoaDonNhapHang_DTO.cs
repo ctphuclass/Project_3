@@ -8,8 +8,10 @@ namespace DTO
 {
     public  class HoaDonNhapHang_DTO
     {
+        public int TongTien { get; set; }
         public string MaHoaDonNhap { get; set; }
         public string MaNhaCungCap { get; set; }
         public DateTime NgayNhap { get; set; }
+       
     }
 }

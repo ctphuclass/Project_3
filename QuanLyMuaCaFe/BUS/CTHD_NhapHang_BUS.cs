@@ -13,5 +13,9 @@ namespace BUS
         {
             return CTHD_NhapHang_DAO.Show_HDNH(CTHD_NhapHang_DTO);
         }
+        public static List<CTHD_NhapHang_DTO> TinhTongTien(CTHD_NhapHang_DTO CTHD_NhapHang_DTO)
+        {
+            return CTHD_NhapHang_DAO.TinhTongTien(CTHD_NhapHang_DTO);
+        }
     }
 }

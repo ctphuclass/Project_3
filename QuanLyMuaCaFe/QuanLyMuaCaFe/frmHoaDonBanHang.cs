@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using Microsoft.Office.Interop.Excel;
 
 namespace QuanLyMuaCaFe
 {
@@ -60,6 +61,46 @@ namespace QuanLyMuaCaFe
             dataGridView1.Focus();
             tbSearch.Text = "Nhập Mã Hóa Đơn để tìm kiếm...";
             Load();
+        }
+
+        private void btIn_Click(object sender, EventArgs e)
+        {
+            DataGridView drgv = new DataGridView();
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Wordnook|*.xls", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    ws.Cells[1, 1] = "Cà phê The Cold House";
+                    ws.Cells[2, 1] = "Editor: Trần Đức Sơn";
+                    //ws.Cells[3, 1] = string.Format("Doanh thu theo bàn số {0}", comboBox1.Text);
+                    ws.Cells[3, 1] = string.Format("Hóa Đơn Bán Hàng");
+                    ws.Cells[4, 1] = "Ngày Lập";
+                    ws.Cells[4, 2] = "Mã Nhân Viên";
+                    ws.Cells[4, 3] = "Tên Bàn";
+                    ws.Cells[4, 4] = "Mã Bàn";
+                    ws.Cells[4, 5] = "Mã Hóa Đơn";
+                    //foreach (ListViewItem item in .Items)
+                    //{
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        {
+                            for (int k = 5; k ==5; k--)
+                            {
+                                ws.Cells[i + 5, k-j] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    }
+                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Impot Success!");
+                }
+            }
         }
     }
 }
