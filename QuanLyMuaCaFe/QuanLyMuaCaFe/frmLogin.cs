@@ -54,7 +54,7 @@ namespace QuanLyMuaCaFe
                     }
                 }
                 fView.ShowDialog();
-                this.Hide();
+    
             }
             else
             {
